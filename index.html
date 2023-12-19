@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Music Blind Test</title>
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="question-container">
+            <h2>Guess the song</h2>
+            <audio id="audio-player" controls>
+                <source id="audio-source" src="/audio/ACDC - Back In Black.mp3" type="audio/mp3">
+            </audio>
+            <div id="choices-container">
+                <button class="choice-btn" onclick="nextSong()">Next</button>
+                <button class="choice-btn"></button>
+            </div>
+        </div>
+        <div id="score-container">
+            <p>Score: <span id="score">0</span></p>
+        </div>
+    </div>
+    <script src="/src/index.js"></script>
+</body>
+</html>
+
+
+
+
+
