@@ -27,3 +27,91 @@ body {
     cursor: pointer;
 }
 
+
+
+
+
+
+/*body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#quiz-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#question {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+#score {
+    margin-top: 20px;
+    font-size: 16px;
+}*/
+
+
+
+
+
+
+
+
+/*body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+}
+
+#quiz-container {
+    text-align: center;
+}
+
+#question-container {
+    margin-bottom: 20px;
+}
+
+#choices-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.choice-btn {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+
