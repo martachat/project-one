@@ -61,6 +61,61 @@ const audioFiles = [
     choices: ['The Jimi Hendrix Experience', 'Led Zeppelin', 'Jimi Hendrix', 'Steppenwolf'],
     correctChoice: "The Jimi Hendrix Experience",
     audio: "/audio/The Jimi Hendrix Experience - All Along The Watchtower (Official Audio).mp3"
+  },
+  {
+    choices: ['Cindy Lauper', 'Blondie', 'The Bangles', 'Eurythmics'],
+    correctChoice: "Blondie",
+    audio: "/audio/Blondie - Heart Of Glass.mp3"
+  },
+  {
+    choices: ['Dire Straits', 'The Who', 'U2', 'Led Zeppelin'],
+    correctChoice: "Dire Straits",
+    audio: "/audio/Dire Straits - Sultans Of Swing (Official Music Video).mp3"
+  },
+  {
+    choices: ['Jerry Garcia Band', 'New Riders of the Purple Sage', 'Grateful Dead', 'Dead&Company'],
+    correctChoice: "Grateful Dead",
+    audio: "/audio/Friend of the Devil (2013 Remaster).mp3"
+  },
+  {
+    choices: ['The Rolling Stones', 'The Beatles', 'Deep Purple', 'The Who'],
+    correctChoice: "The Beatles",
+    audio: "/audio/Helter Skelter (Remastered 2009).mp3"
+  },
+  {
+    choices: ['Metallica', 'Megadeath', 'Motorhead', 'Iron Maiden'],
+    correctChoice: "Iron Maiden",
+    audio: "/audio/Iron Maiden - Aces High (1998 Remastered Version) #01.mp3"
+  },
+  {
+    choices:['Coldplay', 'Oasis', 'Beady Eye', 'Radiohead'],
+    correctChoice: "Oasis",
+    audio: "/audio/Oasis - Stop Crying Your Heart Out (Official Video).mp3"
+  },
+  {
+    choices: ['John Cale', 'Bob Dylan', 'Lou Reed', 'Neil Young'],
+    correctChoice: "Lou Reed",
+    audio: "/audio/Lou Reed - Perfect Day.mp3"
+  },
+  {
+    choices: ['Sex Pistols', 'The Clash', 'Ramones', "The Damned"],
+    correctChoice: "The Clash",
+    audio: "/audio/London Calling.mp3"
+  },
+  {
+    choices: ['Sex Pistols', 'The Clash', 'Ramones', "The Damned"],
+    correctChoice: "Ramones",
+    audio: "/audio/Blitzkrieg Bop (2016 Remaster).mp3"
+  },
+  {
+    choices: ['The White Stripes', 'Eurythmics', 'The Black Keys', 'The Kills'],
+    correctChoice: "The White Stripes",
+    audio: "/audio/Seven Nation Army.mp3"
+  },
+  {
+    choices: ['The Kinks', 'The Who', 'Cream', 'The Rolling Stones'],
+    correctChoice: "The Rolling Stones",
+    audio: "/audio/Paint It, Black.mp3"
   }
 ]
 
@@ -69,9 +124,7 @@ let initialPlay = true
 audioPlayer.addEventListener('play',()=>{
     if(initialPlay){
         initialPlay=false
-    }
-    //console.log('song played')
-   
+    }   
 })
 
 
@@ -83,25 +136,23 @@ window.addEventListener('load', function () {
   
     startButton.addEventListener('click', startGame)
     nextButton.addEventListener('click', nextSong)
-    //startAnotherRoundButton.addEventListener('click', startNextRound)
   })
   
   
   function startGame() {  // Hide start and show quiz when starting the game - IT WORKS!
     startContainer.style.display = 'none'
     quizContainer.style.display = 'block'
-    //gameOverContainer.style.display = 'none'
 
     nextSong() // Call nextSong to start the game - IT WORKS! 
   }
   
-  function startNextRound() {  // Need verifying if it works after fixing random pick 
+  function startNextRound() { // Evaluate how to develop it with second part of the quizz 
   quizContainer.style.display = 'block'
   gameOverContainer.style.display = 'none'
   startNextRoundLogic();
   }
 
-  function startNextRoundLogic() { // Not working 
+  function startNextRoundLogic() { // Evaluate how to develop it with second part of the quizz 
     if (rounds < 3) {
       rounds++;
       console.log(rounds)
@@ -111,7 +162,7 @@ window.addEventListener('load', function () {
     }
   }
   
-  function gameOver() {  // Not working 
+  function gameOver() {   // Evaluate how to develop it with second part of the quizz 
     quizContainer.style.display = 'none'
     //gameOverContainer.style.display = 'block'
     alert('Game Over! Your final score is ' + score)
@@ -126,7 +177,7 @@ function nextSong() {
 
   const currentAudioIndex = getRandomAudioIndex()
 
-   console.log( `current index` ,currentAudioIndex)
+   //console.log( `current index` ,currentAudioIndex)
 
   const currentAudio = audioFiles[currentAudioIndex]
   

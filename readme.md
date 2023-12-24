@@ -1,35 +1,13 @@
-Game Idea 1: MUSIC / CINEMA BLIND TEST
+Game Idea: Rock Music Blind Test & Quizz
 
-Win/Lose Logic : User have 5 songs from movirs to guess at every round. User has to guess the movie and has multiple options. User has to guess at least 4 movies to pass the game. The timer is set to 20 seconds per song. After that, the song will be revealed and the point will count as lost. 
+The game is meant for all the lovers of rock music who want to test their knowledge.
 
-1-3 : You lose
-4-6 : Nice
-7: You are the music master
+The game has two rounds. 
+The first round is a blind music test. The user will listen to 5 songs and guess the arist among the proposed options. The song is played for 30 seconds. If the user guesses right, one point is added. If the user chooses the wrong option or fails to select one option in the given time, they will earn 0 ponts.
+The second round is a music quizz. The user will have to reply to 5 different questions by choosing the right option among those given. The score logic is the same as the first round.
 
+At the end, the user will be able to see their score. 
 
-let myQuestions = [
-
-    {
-        choices: ['ACDC', 'Taylor Swift']
-        correctChoice: "ACDS",
-        audio: "
-    },
-
-
-    points =0
-
-    if( {
-
-        points++
-    })
-]
-
-const mainChoiceDiv = document get.ElementId(main-div)
-
-myQuestions.forEach((element))=> {
-    myChoise=document
-   constmyChoice = document.createElement('div)
-}
-
-
-get audio from js to html 
+If the score is higher than 5, the user wins.
+If the score is lower than 5, the user loses.
+If the score is equal to 5, the user will get one bonus question. If they guess right, they win, if not they lose. 
