@@ -1,4 +1,4 @@
-let startContainer = document.getElementById('start-container')
+let startContainer = document.getElementById('start-container')  // Get all elements from the HTML doc and store them in variables 
 let quizContainer = document.getElementById('quiz-container')
 let audioPlayer = document.getElementById('audio-player')
 let audioSource = document.getElementById('audio-source')
@@ -6,10 +6,16 @@ let choicesContainer = document.getElementById('choices-container')
 let nextButton = document.getElementById('next-button')
 let startButton = document.getElementById('start-button')
 let scoreElement = document.getElementById('score')
-let score = 0
-let timer = 15
-let timerInterval
-let rounds = 0
+let endContainer = document.getElementById('end-container')
+let questionContainer = document.getElementById('question-element')
+let questionSection = document.getElementById('question-section')
+let finalScoreElement = document.getElementById('final-score')
+let startNextRoundButton = document.getElementById('start-next-round-button')
+let startNewGameButton = document.getElementById('start-new-game-button')
+let timerElement = document.getElementById('timer')
+let timerInterval // Store the identifier returned by setInterval()
+
+// Add variables to fill in the quizz : 2 arrays of objects 
 
 const audioFiles = [
   {
@@ -116,69 +122,201 @@ const audioFiles = [
     choices: ['The Kinks', 'The Who', 'Cream', 'The Rolling Stones'],
     correctChoice: "The Rolling Stones",
     audio: "/audio/Paint It, Black.mp3"
+  },
+  {
+    choices: ['Bob Dylan', 'Leonard Cohen', 'Donovan', 'Johnny Cash'],
+    correctChoice: "Bob Dylan",
+    audio: "/audio/Bob Dylan - Hurricane (Official Audio).mp3"
+  },
+  {
+    choices: ['The Cure', 'Jefferson Airplane', 'Talking Heads', 'Velvet Underground'],
+    correctChoice: "Talking Heads",
+    audio: "/audio/Talking Heads - Psycho Killer.mp3"
+  },
+  {
+    choices: ['Jefferson Airplane', 'Talking Heads', 'Kaleidoscope', 'The Byrds'],
+    correctChoice: "Jefferson Airplane",
+    audio: "/audio/Somebody to Love.mp3"
+  },
+  {
+    choices: ['Molly Hatchet', 'Steppenwolf', 'Eagles', 'Lynyrd Skynyrd'],
+    correctChoice: "Lynyrd Skynyrd",
+    audio: "/audio/Lynyrd Skynyrd - Sweet Home Alabama (Audio).mp3"
+  },
+  {
+    choices: ['Genesis', 'Pink Floyd', 'King Crimson', 'Led Zeppelin'],
+    correctChoice: "Pink Floyd",
+    audio: "/audio/Pink Floyd - Wish You Were Here.mp3"
+  },
+  {
+    choices: ['King Crimson', 'Genesis', 'Jefferson Airplane', 'Jefferson Starship'],
+    correctChoice: "King Crimson",
+    audio: "/audio/King Crimson - I Talk To The Wind.mp3"
+  },
+  {
+    choices: ['Dropkick Murphys', 'Gentle Giant', 'Jethro Tull','Yes'],
+    correctChoice: "Jethro Tull",
+    audio: "/audio/Journeyman (2003 Remaster).mp3"
   }
 ]
 
-let initialPlay = true
+const rockMusicQuizQuestions = [
+    {
+      question: "Which rock band released the album 'The Dark Side of the Moon'?",
+      options: ['Led Zeppelin', 'Pink Floyd', 'The Rolling Stones', 'The Who'],
+      correctOption: "Pink Floyd"
+    },
+    {
+      question: "Who is known as the 'Godfather of Punk'?",
+      options: ['David Bowie', 'Iggy Pop', 'Lou Reed', 'Johnny Cash'],
+      correctOption: "Iggy Pop"
+    },
+    {
+      question: "Which rock guitarist is famous for his 'windmill' guitar strumming style?",
+      options: ['Jimi Hendrix', 'Pete Townshend', 'Eric Clapton', 'Jimmy Page'],
+      correctOption: "Pete Townshend"
+    },
+    {
+      question: "What year did The Beatles release their iconic album 'Sgt. Pepper's Lonely Hearts Club Band'?",
+      options: ['1967', '1965', '1969', '1971'],
+      correctOption: "1967"
+    },
+    {
+      question: "Who is the lead singer of the band Queen?",
+      options: ['Freddie Mercury', 'David Bowie', 'Roger Daltrey', 'Robert Plant'],
+      correctOption: "Freddie Mercury"
+    },
+    {
+      question: "Which rock band's logo features a tongue and lips?",
+      options: ['ACDC', 'KISS', 'The Rolling Stones', 'Van Halen'],
+      correctOption: "The Rolling Stones"
+    },
+    {
+      question: "What is the title of Nirvana's breakthrough album?",
+      options: ['In Utero', 'Nevermind', 'Bleach', 'Incesticide'],
+      correctOption: "Nevermind"
+    },
+    {
+      question: "Who is often referred to as the 'Prince of Darkness' in rock music?",
+      options: ['Alice Cooper', 'Ozzy Osbourne', 'Gene Simmons', 'Rob Zombie'],
+      correctOption: "Ozzy Osbourne"
+    },
+    {
+      question: "Which rock band recorded the hit song 'Bohemian Rhapsody'?",
+      options: ['The Who', 'Led Zeppelin', 'Queen', 'The Doors'],
+      correctOption: "Queen"
+    },
+    {
+      question: "What city is known as the birthplace of grunge music?",
+      options: ['Seattle', 'Portland', 'San Francisco', 'Los Angeles'],
+      correctOption: "Seattle"
+    }
+  ]
+
+  let timer = 15  
+  let score = 0  // Initialise the score to 0
+  let rounds = 0 
+  let currentRound = 1  
+  let initialPlay = true
 
 audioPlayer.addEventListener('play',()=>{
     if(initialPlay){
-        initialPlay=false
+        initialPlay=false  // the code within the conditional block should only run the first time the audio is played
     }   
 })
 
-
-window.addEventListener('load', function () {
-    
-    timerElement = document.getElementById('timer')
-    startContainer.style.display = 'block'
-    quizContainer.style.display = 'none'
-  
+window.addEventListener('load', function () {  //  Make sure that functions will be executed when the corresponding buttons are clicked 
     startButton.addEventListener('click', startGame)
     nextButton.addEventListener('click', nextSong)
+    startNextRoundButton.addEventListener('click', startSecondRound) 
+    startNewGameButton.addEventListener('click', startNewGame)
   })
   
   
-  function startGame() {  // Hide start and show quiz when starting the game - IT WORKS!
-    startContainer.style.display = 'none'
-    quizContainer.style.display = 'block'
+  function startGame() {       
+    startContainer.style.display = 'none' // PROBLEM 1 : start-container and quiz-container appear at the same time and I have to click on the startGame button to make it disappear
+    console.log("Hiding start-container")
 
-    nextSong() // Call nextSong to start the game - IT WORKS! 
+    quizContainer.style.display = 'block'   // PROBLEM 2 : first object does not display options, connected to previous problem 
+    console.log("Displaying quiz-container");
+
+    startNextRoundButton.style.display = 'none' // PROBLEM 3 : screen is appearing with the previous ones
+    console.log("Hiding next-round")
+    
+    //startNextRound()  
   }
   
-  function startNextRound() { // Evaluate how to develop it with second part of the quizz 
+  function startNextRound() { 
+  startContainer.style.display = 'none'
   quizContainer.style.display = 'block'
+  startNextRoundButton.style.display = 'block'
   gameOverContainer.style.display = 'none'
-  startNextRoundLogic();
+  startNextRoundLogic()
   }
 
-  function startNextRoundLogic() { // Evaluate how to develop it with second part of the quizz 
-    if (rounds < 3) {
-      rounds++;
-      console.log(rounds)
-      nextSong();
-    } else {
-      gameOver();
+  function startNextRoundLogic() {
+    if (currentRound === 1) {
+      if (rounds < 4) {
+        rounds++
+        nextSong()
+      } else {
+        quizContainer.style.display = 'none' // This line might be unnecessary, but it helps me displaying the Start Next Round in another screen
+        console.log("Hiding quizContainer")
+
+        startNextRoundButton.style.display = 'block'
+        console.log("Displaying startNextRoundButton")
+
+        audioPlayer.pause()
+        console.log("Pausing audioPlayer")
+
+        questionContainer.innerText = "Pick the right option"
+      }
+    } else if (currentRound === 2) {
+      startNextRoundButton.style.display = 'none'
+
+      if (rounds < rockMusicQuizQuestions.length) {
+        rounds++
+        nextQuestion()
+      } else {
+        gameOver()
+        // backgroundAudio.pause() -- consider if adding it or not later
+      }
     }
   }
   
-  function gameOver() {   // Evaluate how to develop it with second part of the quizz 
+  
+  function startSecondRound() {
+    currentRound = 2
+    rounds = 0
+    //score = 0
+    quizContainer.style.display = 'block'
+    endContainer.style.display = 'none'
+    //backgroundAudio.play() -- consider if adding it or not later
+    startNextRoundLogic()
+  }
+  
+  function gameOver() {
     quizContainer.style.display = 'none'
-    //gameOverContainer.style.display = 'block'
-    alert('Game Over! Your final score is ' + score)
+    startNextRoundButton.style.display = 'none'
+    endContainer.style.display = 'block'
+    finalScoreElement.textContent = score
+  }
+  
+  function startNewGame() {
+    currentRound = 1
+    rounds = 0
+    score = 0
+    endContainer.style.display = 'none'
+    startGame()
   }
 
 function nextSong() {
 
   clearInterval(timerInterval)
   initialPlay= true
-
   audioPlayer.style.display = "block"
 
   const currentAudioIndex = getRandomAudioIndex()
-
-   //console.log( `current index` ,currentAudioIndex)
-
   const currentAudio = audioFiles[currentAudioIndex]
   
   if (currentAudio) {
@@ -186,8 +324,6 @@ function nextSong() {
 
 
     const choices = currentAudio.choices
-
-    console.log(choices)
     choicesContainer.innerHTML = ''
 
     for (let i = 0; i < choices.length; i++) {
@@ -206,10 +342,49 @@ function nextSong() {
   }
 }
 
+function nextQuestion() {
+
+    clearInterval(timerInterval)
+    audioPlayer.style.display = "none"
+    
+
+    let currentQuestionIndex = getRandomQuestionIndex()
+    let currentQuestion = rockMusicQuizQuestions[currentQuestionIndex]
+
+      choicesContainer.innerHTML = ''
+  
+      for (let i = 0; i < currentQuestion.options.length; i++) {
+        const choiceButton = document.createElement('button')
+        choiceButton.textContent = currentQuestion.options[i]
+        choiceButton.addEventListener('click', function () {
+        checkAnswerRoundTwo(currentQuestion.options[i], currentQuestionIndex)
+        })
+        choicesContainer.appendChild(choiceButton)
+      }
+      
+      audioPlayer.disabled = true
+      startTimer(15)
+  
+      // Update timer here?
+  
+      //currentQuestionIndex++
+    } /*else {
+      gameOver()
+      // Handle the end of the quiz or start a new round
+    }*/
+  
+
+
 function getRandomAudioIndex() {
     let randomNumber = Math.floor(Math.random() * audioFiles.length)
     
-    return randomNumber;
+    return randomNumber
+  }
+
+  function getRandomQuestionIndex() {
+    let randomQuestionNumber = Math.floor(Math.random() * rockMusicQuizQuestions.length)
+
+    return randomQuestionNumber
   }
 
 //let timerElement = document.getElementById('timer')
@@ -255,27 +430,25 @@ function checkAnswer(selectedChoice,currentIndex) {
     alert('Incorrect!')
   }
 
-  /*const scoreElement = document.getElementById('score')
-  if (scoreElement) {
-    scoreElement.innerHTML = score
-  }*/
-  
   scoreElement.innerHTML = score
   hidePlayerAndCheck()
   clearInterval(timer)
 }
 
+  function checkAnswerRoundTwo(selectedChoice, currentIndex) {
+    const currentQuestionIndex = currentIndex
+    const correctChoice = rockMusicQuizQuestions[currentQuestionIndex].correctOption
+
+    if (selectedChoice === correctChoice) {
+        alert('Correct!');
+        score += 1;
+    } else {
+        alert('Incorrect!');
+    } 
+    scoreElement.innerHTML = score
+} 
+
 function hidePlayerAndCheck() {
     audioPlayer.style.display = 'none'
     setTimeout(startNextRoundLogic, 1000)
   }
-
-
-
-
-
-
-
-
-
-
