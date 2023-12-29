@@ -89,11 +89,6 @@ const audioFiles = [
     audio: "/audio/Helter Skelter (Remastered 2009).mp3"
   },
   {
-    choices: ['Metallica', 'Megadeath', 'Motorhead', 'Iron Maiden'],
-    correctChoice: "Iron Maiden",
-    audio: "/audio/Iron Maiden - Aces High (1998 Remastered Version) #01.mp3"
-  },
-  {
     choices:['Coldplay', 'Oasis', 'Beady Eye', 'Radiohead'],
     correctChoice: "Oasis",
     audio: "/audio/Oasis - Stop Crying Your Heart Out (Official Video).mp3"
@@ -250,15 +245,16 @@ window.addEventListener('load', function () {  //  Make sure that functions will
   startContainer.style.display = 'none'
   quizContainer.style.display = 'block'
   startNextRoundButton.style.display = 'block'
-  gameOverContainer.style.display = 'none'
+  endContainer.style.display = 'none'
   startNextRoundLogic()
   }
 
   function startNextRoundLogic() {
     if (currentRound === 1) {
-      if (rounds < 4) {
+      if (rounds < 5) {
         rounds++
         nextSong()
+        questionContainer.innerText = "Guess the song"
       } else {
         quizContainer.style.display = 'none' // This line might be unnecessary, but it helps me displaying the Start Next Round in another screen
         console.log("Hiding quizContainer")
@@ -274,7 +270,7 @@ window.addEventListener('load', function () {  //  Make sure that functions will
     } else if (currentRound === 2) {
       startNextRoundButton.style.display = 'none'
 
-      if (rounds < rockMusicQuizQuestions.length) {
+      if (rounds < 6) {
         rounds++
         nextQuestion()
       } else {
@@ -307,7 +303,9 @@ window.addEventListener('load', function () {  //  Make sure that functions will
     rounds = 0
     score = 0
     endContainer.style.display = 'none'
-    startGame()
+    startNextRoundButton.style.display = 'none'
+    startNextRound()
+    //startGame()
   }
 
 function nextSong() {
@@ -318,6 +316,7 @@ function nextSong() {
 
   const currentAudioIndex = getRandomAudioIndex()
   const currentAudio = audioFiles[currentAudioIndex]
+  //audioFiles.splice(currentAudioIndex, 1)
   
   if (currentAudio) {
     audioSource.src = currentAudio.audio
@@ -350,6 +349,7 @@ function nextQuestion() {
 
     let currentQuestionIndex = getRandomQuestionIndex()
     let currentQuestion = rockMusicQuizQuestions[currentQuestionIndex]
+    //rockMusicQuizQuestions.splice(randomQuestionIndex, 1)
 
       choicesContainer.innerHTML = ''
   
@@ -364,14 +364,9 @@ function nextQuestion() {
       
       audioPlayer.disabled = true
       startTimer(15)
-  
-      // Update timer here?
-  
-      //currentQuestionIndex++
-    } /*else {
-      gameOver()
-      // Handle the end of the quiz or start a new round
-    }*/
+    
+    } 
+ 
   
 
 
@@ -387,7 +382,6 @@ function getRandomAudioIndex() {
     return randomQuestionNumber
   }
 
-//let timerElement = document.getElementById('timer')
 
 function startTimer(durationInSeconds) {
   if (timer) {
@@ -411,12 +405,12 @@ function onTimerEnd() {
   audioPlayer.pause()
   audioPlayer.style.display = "none"
   startNextRoundLogic()
-  //startTimer(15)
 }
 
 function checkAnswer(selectedChoice,currentIndex) {
     console.log(rounds)
   const currentAudioIndex = currentIndex
+  // const currentAudio = audioFiles[currentAudioIndex]
   const correctChoice = audioFiles[currentAudioIndex].correctChoice
 
   console.log(`correct`, correctChoice)
@@ -437,7 +431,12 @@ function checkAnswer(selectedChoice,currentIndex) {
 
   function checkAnswerRoundTwo(selectedChoice, currentIndex) {
     const currentQuestionIndex = currentIndex
+    const currentQuestion = rockMusicQuizQuestions[currentQuestionIndex]
     const correctChoice = rockMusicQuizQuestions[currentQuestionIndex].correctOption
+
+    console.log(`Question: ${currentQuestion.question}`)
+    //console.log(`correct`, correctChoice)
+    console.log(`selected ${selectedChoice}`)
 
     if (selectedChoice === correctChoice) {
         alert('Correct!');
@@ -446,6 +445,8 @@ function checkAnswer(selectedChoice,currentIndex) {
         alert('Incorrect!');
     } 
     scoreElement.innerHTML = score
+
+    setTimeout(startNextRoundLogic, 1000)
 } 
 
 function hidePlayerAndCheck() {
