@@ -738,12 +738,14 @@ audioPlayer.addEventListener("play", () => {
 window.addEventListener("load", function () {
   //  Make sure that functions will be executed when the corresponding buttons are clicked
   startButton.addEventListener("click", startGame);
-  nextButton.addEventListener("click", nextSong);
+  //nextButton.addEventListener("click", nextSong);
   startNextRoundButton.addEventListener("click", startSecondRound);
   startNewGameButton.addEventListener("click", startNewGame);
 });
 
 function startGame() {
+  nextButton.style.display = 'none'
+
   startContainer.style.display = "none";
   console.log("Hiding start-container");
 
@@ -958,8 +960,8 @@ function checkAnswerRoundTwo(selectedChoice, currentIndex) {
     alert("Incorrect!");
   }
   scoreElement.innerHTML = score;
-  rockMusicQuizQuestions.splice(currentQuestionIndex, 1)
   setTimeout(startNextRoundLogic, 1000);
+  rockMusicQuizQuestions.splice(currentQuestionIndex, 1)
 }
 
 function hidePlayerAndCheck() {
