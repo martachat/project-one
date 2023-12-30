@@ -153,6 +153,206 @@ const audioFiles = [
     correctChoice: "Jethro Tull",
     audio: "/audio/Journeyman (2003 Remaster).mp3",
   },
+  {
+    choices: ["The Kinks", "Badfinger", "The Rolling Stones", "The Beatles"],
+    correctChoice: "The Beatles",
+    audio: "/audio/A Hard Day's Night (Remastered 2015).mp3",
+  },
+  {
+    choices: ["Jimi Hendrix", "ACDC", "Brant Bjork", "Deep Purple"],
+    correctChoice: "ACDC",
+    audio: "/audio/ACDC - Highway to Hell.mp3",
+  },
+  {
+    choices: ["Aerosmith", "Bruce Springsteen", "The Rolling Stones", "Van Halen"],
+    correctChoice: "Aerosmith",
+    audio: "/audio/Aerosmith - Rag Doll.mp3",
+  },
+  {
+    choices: ["The Dandy Warhols", "Blur", "Franz Ferdinand", "Brian Jonestown Massacre"],
+    correctChoice: "Brian Jonestown Massacre",
+    audio: "/audio/Anemone - Brian Jonestown Massacre.mp3",
+  },
+  {
+    choices: ["Jet", "The Dandy Warhols", "Blur", "Muse"],
+    correctChoice: "Blur",
+    audio: "/audio/Blur - Song 2 (Official Music Video).mp3",
+  },
+  {
+    choices: ["Lou Reed", "Tom Waits", "Bob Dylan", "Leonard Cohen"],
+    correctChoice: "Bob Dylan",
+    audio: "/audio/Bob Dylan - Mr. Tambourine Man (Official Audio).mp3",
+  },
+  {
+    choices: ["Bruce Springsteen", "Aerosmith", "U2", "Dire Straits"],
+    correctChoice: "Bruce Springsteen",
+    audio: "/audio/Born to Run.mp3",
+  },
+  {
+    choices: ["Rush", "The Doors", "U2", "Pink Floyd"],
+    correctChoice: "Pink Floyd",
+    audio: "/audio/Comfortably Numb.mp3",
+  },
+  {
+    choices: ["Johnny Cash", "David Bowie", "Lou Reed", "Bob Dylan"],
+    correctChoice: "David Bowie",
+    audio: "/audio/David Bowie - Life on Mars_ (Lyrics).mp3",
+  },
+  {
+    choices: ["ACDC", "Motley Crue", "Jimi Hendrix", "Deep Purple"],
+    correctChoice: "Deep Purple",
+    audio: "/audio/Deep Purple - Smoke on the Water (Audio).mp3",
+  },
+  {
+    choices: ["Dolly Parton", "Nancy Sinatra", "Blondie", "Cindy Lauper"],
+    correctChoice: "Dolly Parton",
+    audio: "/audio/Dolly Parton - Jolene (Audio).mp3",
+  },
+  {
+    choices: ["The Strokes", "Interpol", "Arctic Monkeys", "Franz Ferdinand"],
+    correctChoice: "Franz Ferdinand",
+    audio: "/audio/Franz Ferdinand - Take Me Out (Video).mp3",
+  },
+  {
+    choices: ["Steve Miller Band", "Eagles", "Fleetwood Mac", "Wings"],
+    correctChoice: "Fleetwood Mac",
+    audio: "/audio/Go Your Own Way (2004 Remaster).mp3",
+  },
+  {
+    choices: ["Eagles", "Guns N' Roses", "Dire Straits", "The Who"],
+    correctChoice: "Guns N' Roses",
+    audio: "/audio/Guns N' Roses - Sweet Child O' Mine.mp3",
+  },
+  {
+    choices: ["Joan Jett", "Pat Benatar", "The Runaways", "Heart"],
+    correctChoice: "Joan Jett",
+    audio: "/audio/I Love Rock 'N Roll.mp3",
+  },
+  {
+    choices: ["Black Sabbath", "Iron Maiden", "Metallica", "Megadeth"],
+    correctChoice: "Iron Maiden",
+    audio: "/audio/Iron Maiden - Wasted Years (Official Video).mp3",
+  },
+  {
+    choices: ["Elvis Presley", "Little Richard", "Elton John", "Chuck Berry"],
+    correctChoice: "Chuck Berry",
+    audio: "/audio/Johnny B. Goode.mp3",
+  },
+  {
+    choices: ["Motley Crue", "Def Leppard", "Motorhead", "Iron Maiden"],
+    correctChoice: "Motley Crue",
+    audio: "/audio/Kickstart My Heart (2021- Remaster).mp3",
+  },
+  {
+    choices: ["The Who", "Led Zeppelin", "Deep Purple", "Jimi Hendrix"],
+    correctChoice: "Led Zeppelin",
+    audio: "/audio/Led Zeppelin - Stairway To Heaven (HQ).mp3",
+  },
+  {
+    choices: ["Arctic Monkeys", "The Libertines", "The Killers", "Kings of Leon"],
+    correctChoice: "The Killers",
+    audio: "/audio/Mr. Brightside HQ (The Killers).mp3",
+  },
+  {
+    choices: ["Aerosmith", "Def Leppard", "Van Halen", "Guns N' Roses"],
+    correctChoice: "Guns N' Roses",
+    audio: "/audio/Paradise City - Guns N' Roses.mp3",
+  },
+  {
+    choices: ["Pearl Jam", "Alice in Chains", "U2", "Foo Fighters"],
+    correctChoice: "Pearl Jam",
+    audio: "/audio/Pearl Jam - Black (Official Audio).mp3",
+  },
+  {
+    choices: ["U2", "Pink Floyd", "Radiohead", "Led Zeppelin"],
+    correctChoice: "Pink Floyd",
+    audio: "/audio/Pink Floyd - Wish You Were Here.mp3",
+  },
+  {
+    choices: ["Radiohead", "Muse", "Placebo", "Coldplay"],
+    correctChoice: "Placebo",
+    audio: "/audio/Placebo - Every You Every Me (Lyrics).mp3",
+  },
+  {
+    choices: ["Led Zeppelin", "The Doors", "The Beatles", "Queen"],
+    correctChoice: "Queen",
+    audio: "/audio/Queen - Another One Bites The Dust [Lyrics].mp3",
+  },
+  {
+    choices: ["Johnny Cash", "Waylon Jennings", "Willie Nelson", "Merle Haggard"],
+    correctChoice: "Johnny Cash",
+    audio: "/audio/Ring of Fire.mp3",
+  },
+  {
+    choices: ["Dusty Springfield", "Nancy Sinatra", "Dolly Parton", "Bobbie Gentry"],
+    correctChoice: "Nancy Sinatra",
+    audio: "/audio/Rockin' Rock and Roll.mp3",
+  },
+  {
+    choices: ["Ramones", "Buzzcocks", "Sex Pistols", "The Clash"],
+    correctChoice: "Sex Pistols",
+    audio: "/audio/Sex Pistols - God Save the Queen.mp3",
+  },
+  {
+    choices: ["The Animals", "Cream", "Jimi Hendrix", "Steppenwolf"],
+    correctChoice: "Steppenwolf",
+    audio: "/audio/Steppenwolf - Born To Be Wild.mp3",
+  },
+  {
+    choices: ["Simple Minds", "R.E.M", "Oasis", "U2"],
+    correctChoice: "U2",
+    audio: "/audio/Sunday Bloody Sunday.mp3",
+  },
+  {
+    choices: ["Supertramp", "Electric Light Orchestra", "Yes", "The Moody Blues"],
+    correctChoice: "Supertramp",
+    audio: "/audio/Supertramp - Breakfast In America (HQ).mp3",
+  },
+  {
+    choices: ["The Eagles", "Fleetwood Mac", "Creedence Clearwater Revival", "Lynyrd Skynyrd"],
+    correctChoice: "Eagles",
+    audio: "/audio/Take It Easy.mp3",
+  },
+  {
+    choices: ["The Animals", "The Kinks", "The Who", "The Byrds"],
+    correctChoice: "The Animals",
+    audio: "/audio/The Animals - House Of The Rising Sun (Music Video) [4K HD].mp3",
+  },
+  {
+    choices: ["The Velvet Underground", "The Dandy Warhols", "The Verve", "The Brian Jonestown Massacre"],
+    correctChoice: "The Dandy Warhols",
+    audio: "/audio/The Dandy Warhols - Bohemian Like You.mp3",
+  },
+  {
+    choices: ["The Doors", "Jefferson Airplane", "The Byrds", "The Rolling Stones"],
+    correctChoice: "The Doors",
+    audio: "/audio/The Doors - People Are Strange (Official Audio).mp3",
+  },
+  {
+    choices: ["Babyshambles", "The Libertines", "The Strokes", "Arctic Monkeys"],
+    correctChoice: "The Libertines",
+    audio: "/audio/The Libertines - Can't Stand Me Now.mp3",
+  },
+  {
+    choices: ["The Who", "The Kinks", "The Rolling Stones", "Greta Van Fleet"],
+    correctChoice: "The Rolling Stones",
+    audio: "/audio/The Rolling Stones - (I Can't Get No) Satisfaction (Official Lyric Video).mp3",
+  },
+  {
+    choices: ["The Beatles", "Led Zeppelin", "The Rolling Stones", "Queen"],
+    correctChoice: "Queen",
+    audio: "/audio/The Show Must Go On (Remastered 2011).mp3",
+  },
+  {
+    choices: ["The Who", "The Yardbirds", "The Small Faces", "U2"],
+    correctChoice: "The Who",
+    audio: "/audio/The Who - My Generation.mp3",
+  },
+  {
+    choices: ["ACDC", "Van Halen", "Def Leppard", "Guns N' Roses"],
+    correctChoice: "Van Halen",
+    audio: "/audio/Van Halen - Jump.mp3",
+  }
 ];
 
 console.log(audioFiles.length);
@@ -169,8 +369,7 @@ const rockMusicQuizQuestions = [
     correctOption: "Iggy Pop",
   },
   {
-    question:
-      "Which rock guitarist is famous for his 'windmill' guitar strumming style?",
+    question: "Which rock guitarist is famous for his 'windmill' guitar strumming style?",
     options: ["Jimi Hendrix", "Pete Townshend", "Eric Clapton", "Jimmy Page"],
     correctOption: "Pete Townshend",
   },
@@ -182,17 +381,11 @@ const rockMusicQuizQuestions = [
   },
   {
     question: "Who is the lead singer of the band Queen?",
-    options: [
-      "Freddie Mercury",
-      "David Bowie",
-      "Roger Daltrey",
-      "Robert Plant",
-    ],
+    options: ["Freddie Mercury", "David Bowie", "Roger Daltrey","Robert Plant"],
     correctOption: "Freddie Mercury",
   },
   {
-    question:
-      "Which rock band's lead singer is famous for his distinctive tongue-wagging on stage?",
+    question:"Which rock band's lead singer is famous for his distinctive tongue-wagging on stage?",
     options: ["ACDC", "KISS", "The Rolling Stones", "Van Halen"],
     correctOption: "The Rolling Stones",
   },
