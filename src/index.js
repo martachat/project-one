@@ -34,15 +34,9 @@ const audioFiles = [
     audio: "/audio/Nirvana - Lithium.mp3",
   },
   {
-    choices: [
-      "Audioslave",
-      "John Frusciante",
-      "Pearl Jam",
-      "Red Hot Chili Peppers",
-    ],
+    choices: ["Audioslave","John Frusciante", "Pearl Jam", "Red Hot Chili Peppers"],
     correctChoice: "Red Hot Chili Peppers",
-    audio:
-      "/audio/onlymp3.to - Red Hot Chili Peppers Otherside Official Music Video -rn_YodiJO6k-192k-1703019080.mp3",
+    audio: "/audio/onlymp3.to - Red Hot Chili Peppers Otherside Official Music Video -rn_YodiJO6k-192k-1703019080.mp3",
   },
   {
     choices: ["Village People", "Carpenters", "ABBA", "The Weather Girls"],
@@ -55,20 +49,14 @@ const audioFiles = [
     audio: "/audio/Enter Sandman (Remastered).mp3",
   },
   {
-    choices: [
-      "Arctic Monkeys",
-      "Franz Ferdinand",
-      "The Killers",
-      "The Strokes",
-    ],
+    choices: ["Arctic Monkeys", "Franz Ferdinand", "The Killers","The Strokes"],
     correctChoice: "The Strokes",
     audio: "/audio/Last Nite - The Strokes (with Lyrics).mp3",
   },
   {
     choices: ["The Rolling Stones", "The Who", "Aerosmith", "Led Zeppelin"],
     correctChoice: "Led Zeppelin",
-    audio:
-      "/audio/onlymp3.to - Led Zeppelin Whole Lotta Love Official Music Video -HQmmM_qwG4k-192k-1703340126.mp3",
+    audio: "/audio/onlymp3.to - Led Zeppelin Whole Lotta Love Official Music Video -HQmmM_qwG4k-192k-1703340126.mp3",
   },
   {
     choices: ["Jefferson Airplane", "The Doors", "Cream", "Pink Floyd"],
@@ -76,15 +64,9 @@ const audioFiles = [
     audio: "/audio/Soul Kitchen.mp3",
   },
   {
-    choices: [
-      "The Jimi Hendrix Experience",
-      "Led Zeppelin",
-      "Jimi Hendrix",
-      "Steppenwolf",
-    ],
-    correctChoice: "The Jimi Hendrix Experience",
-    audio:
-      "/audio/The Jimi Hendrix Experience - All Along The Watchtower (Official Audio).mp3",
+    choices: ["Lenny Kravitz", "Led Zeppelin", "Jimi Hendrix", "Steppenwolf"],
+    correctChoice: "Jimi Hendrix",
+    audio: "/audio/The Jimi Hendrix Experience - All Along The Watchtower (Official Audio).mp3",
   },
   {
     choices: ["Cindy Lauper", "Blondie", "The Bangles", "Eurythmics"],
@@ -97,12 +79,7 @@ const audioFiles = [
     audio: "/audio/Dire Straits - Sultans Of Swing (Official Music Video).mp3",
   },
   {
-    choices: [
-      "Jerry Garcia Band",
-      "New Riders of the Purple Sage",
-      "Grateful Dead",
-      "Dead&Company",
-    ],
+    choices: ["Jerry Garcia Band", "The Doors", "Grateful Dead","Dead&Company"],
     correctChoice: "Grateful Dead",
     audio: "/audio/Friend of the Devil (2013 Remaster).mp3",
   },
@@ -147,22 +124,12 @@ const audioFiles = [
     audio: "/audio/Bob Dylan - Hurricane (Official Audio).mp3",
   },
   {
-    choices: [
-      "The Cure",
-      "Jefferson Airplane",
-      "Talking Heads",
-      "Velvet Underground",
-    ],
+    choices: ["The Cure", "Jefferson Airplane", "Talking Heads", "Velvet Underground"],
     correctChoice: "Talking Heads",
     audio: "/audio/Talking Heads - Psycho Killer.mp3",
   },
   {
-    choices: [
-      "Jefferson Airplane",
-      "Talking Heads",
-      "Kaleidoscope",
-      "The Byrds",
-    ],
+    choices: ["Jefferson Airplane", "Talking Heads", "Kaleidoscope", "The Byrds"],
     correctChoice: "Jefferson Airplane",
     audio: "/audio/Somebody to Love.mp3",
   },
@@ -177,12 +144,7 @@ const audioFiles = [
     audio: "/audio/Pink Floyd - Wish You Were Here.mp3",
   },
   {
-    choices: [
-      "King Crimson",
-      "Genesis",
-      "Jefferson Airplane",
-      "Jefferson Starship",
-    ],
+    choices: ["King Crimson", "Genesis", "Jefferson Airplane", "Jefferson Starship"],
     correctChoice: "King Crimson",
     audio: "/audio/King Crimson - I Talk To The Wind.mp3",
   },
@@ -613,7 +575,7 @@ function startNextRound() {
 function startNextRoundLogic() {
   // structure round 1 and round 2 logic
   if (currentRound === 1) {
-    if (rounds < 4) {
+    if (rounds < 5) {
       rounds++;
       nextSong();
       questionContainer.innerText = "Guess the song";
@@ -679,7 +641,7 @@ function nextSong() {
 
   const currentAudioIndex = getRandomAudioIndex();
   const currentAudio = audioFiles[currentAudioIndex];
-  //audioFiles.splice(currentAudioIndex, 1)
+  
 
   if (currentAudio) {
     audioSource.src = currentAudio.audio;
@@ -709,7 +671,7 @@ function nextQuestion() {
 
   let currentQuestionIndex = getRandomQuestionIndex();
   let currentQuestion = rockMusicQuizQuestions[currentQuestionIndex];
-  //rockMusicQuizQuestions.splice(randomQuestionIndex, 1)
+  
   questionSection.innerText = currentQuestion.question;
   choicesContainer.innerHTML = "";
 
@@ -782,6 +744,7 @@ function checkAnswer(selectedChoice, currentIndex) {
   }
 
   scoreElement.innerHTML = score;
+  audioFiles.splice(currentAudioIndex, 1)
   hidePlayerAndCheck();
   clearInterval(timer);
 }
@@ -789,8 +752,7 @@ function checkAnswer(selectedChoice, currentIndex) {
 function checkAnswerRoundTwo(selectedChoice, currentIndex) {
   const currentQuestionIndex = currentIndex;
   const currentQuestion = rockMusicQuizQuestions[currentQuestionIndex];
-  const correctChoice =
-    rockMusicQuizQuestions[currentQuestionIndex].correctOption;
+  const correctChoice = rockMusicQuizQuestions[currentQuestionIndex].correctOption;
 
   console.log(`Question: ${currentQuestion.question}`);
   //console.log(`correct`, correctChoice)
@@ -803,7 +765,7 @@ function checkAnswerRoundTwo(selectedChoice, currentIndex) {
     alert("Incorrect!");
   }
   scoreElement.innerHTML = score;
-
+  rockMusicQuizQuestions.splice(currentQuestionIndex, 1)
   setTimeout(startNextRoundLogic, 1000);
 }
 
