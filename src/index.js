@@ -743,6 +743,87 @@ window.addEventListener("load", function () {
   startNewGameButton.addEventListener("click", startNewGame);
 });
 
+
+ document.addEventListener("DOMContentLoaded", function () {
+    
+    const gifs = [
+        "https://media3.giphy.com/media/hmfMXXKdFABJ98Lvw6/giphy.gif",
+        "https://media.tenor.com/e38-1IwvE6oAAAAC/rock-festival.gif",
+        "https://media4.giphy.com/media/wKNShEiXo1V5SFwyMa/giphy.gif",
+        "https://media3.giphy.com/media/QkJJgKxQL0N3yDbAVx/giphy-downsized-large.gif?cid=6c09b952f8kwdx4pgid5x74dgqnfq0ii5dbbssqon6xf600x&ep=v1_internal_gif_by_id&rid=giphy-downsized-large.gif&ct=g",
+        "https://media3.giphy.com/media/fqtEQuOzTAB9QZOcAD/giphy.gif?cid=6c09b952tco8h08y49ilgqlrp9nlj00uksg1rva6gpwu2rs9&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+        "https://media1.giphy.com/media/h4NEFAAzWRCl8efti2/giphy.gif?cid=6c09b9526onyapy377f9c5op5ua2ztbyai0a4ui4uh7lxxal&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+        "https://i.gifer.com/origin/12/12b28c2002f52c48aca84d9ffe1c134c.gif",
+        "https://i.gifer.com/7JKb.gif",
+        "https://media1.giphy.com/media/jq0GElfMAi8CGwTkBX/giphy.gif?cid=6c09b952e01gbl71vplpa1lux05f5306fxks8uuc00ceeny2&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+        "https://24.media.tumblr.com/10f219b798aefebef5de4e064d04cc05/tumblr_mlnd9ub2eq1rkehhdo1_500.gif",
+        "https://media.giphy.com/media/4WFgJDx1vpirOvTn4g/giphy.gif",
+        "https://media4.giphy.com/media/TK3p6PJV9uWJjWCK5O/giphy.gif?cid=6c09b9521nz2sabxx1uc9apt1ddl8rob1anjbe08aj1lxmjk&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+        "https://media0.giphy.com/media/3ohs7QHXhJLudpeDok/giphy.gif?cid=6c09b952vwflkk8g3p5wk8u9c9ly7govebrllyc3fjordrey&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+        "https://i.gifer.com/7AfF.gif",
+        "https://media1.giphy.com/media/rPltWzwhMb9nfMN3zS/giphy.gif?cid=6c09b952k3lkibvl24r84dpw6wqmkio7rix2di6tl5j48jmv&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+        "https://i.pinimg.com/originals/54/da/35/54da35c5df0acf0b86bc3a8821b54269.gif",
+        "https://giffiles.alphacoders.com/267/26726.gif",
+        "https://i.pinimg.com/originals/d4/4a/7c/d44a7c1063d33d1e08721430359e2e41.gif",
+        "https://i.pinimg.com/originals/1f/40/73/1f4073e449f9ddbfbe4a054f21add5a2.gif",
+        "https://guidelive.imgix.net/1450899529-the-beatles-gif.gif",
+        "https://64.media.tumblr.com/5eb0f5a6cd32ebe6a6f7ed57841c5cb1/tumblr_mzo52wRoYg1sn7uyno1_500.gif",
+        "https://media3.giphy.com/media/5cH8h1R1HUkybfaDy7/giphy.gif?cid=6c09b952ciifxiitqapr5x0r35qnsaqxhmw8htthfzif7kys&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+        "https://media2.giphy.com/media/26BRKmqUonCPPit1e/giphy.gif",
+        "https://i.pinimg.com/originals/11/a4/2a/11a42a328ac7441259221b6505d55619.gif",
+        "https://i0.wp.com/www.decoratedyouth.com/wp-content/uploads/2017/08/Tame-Impala-Panorama-Twitter-gif-Apocalypse-Dreams-2.gif?fit=1280%2C720&ssl=1",
+        "https://i.gifer.com/F0HP.gif",
+        "https://i.pinimg.com/originals/3d/65/2e/3d652e463c75550e19203ecd36fd0d80.gif",
+        "https://24.media.tumblr.com/12afe1d3c15df76848be911958304027/tumblr_mgefmouBe41rheqhwo1_500.gif",
+        "https://25.media.tumblr.com/2d366588387fac1c32a0ffe93f80463e/tumblr_n1cuqcLDrC1shrw6zo1_500.gif"
+    ];
+
+const body = document.body;
+    
+
+    function preloadImages(urls) {
+        return Promise.all(urls.map(url => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = url;
+                img.onload = resolve;
+                img.onerror = reject;
+            });
+        }));
+    }
+
+    function randomSort() {
+      return Math.random() - 0.5;
+  }
+
+  gifs.sort(randomSort);
+
+    function startBackgroundAnimation() {
+      let currentGifIndex = 0;
+
+      function changeBackground() {
+          body.style.backgroundImage = `url('${gifs[currentGifIndex]}')`;
+          currentGifIndex = (currentGifIndex + 1) % gifs.length;
+      }
+
+        changeBackground();
+        const intervalId = setInterval(changeBackground, 3000);
+
+        // Stop the background animation when the button is clicked
+        startButton.addEventListener("click", function () {
+            clearInterval(intervalId);
+            body.style.backgroundImage = "none"; // Add a static background
+        });
+    }
+
+    preloadImages(gifs)
+        .then(() => startBackgroundAnimation())
+        .catch(error => console.error("Error preloading images:", error));
+});
+
+
+
+
 function startGame() {
   nextButton.style.display = 'none'
 
