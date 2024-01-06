@@ -414,7 +414,7 @@ const rockMusicQuizQuestions = [
     question:
       "Which rock band's debut album is titled 'Appetite for Destruction'?",
     options: ["Motley Crue", "Guns N Roses", "Metallica", "Def Leppard"],
-    correctOption: "Guns N' Roses",
+    correctOption: "Guns N Roses",
   },
   {
     question: "Who is often referred to as the 'Lizard King'?",
@@ -775,7 +775,14 @@ window.addEventListener("load", function () {
         "https://i.gifer.com/F0HP.gif",
         "https://i.pinimg.com/originals/3d/65/2e/3d652e463c75550e19203ecd36fd0d80.gif",
         "https://24.media.tumblr.com/12afe1d3c15df76848be911958304027/tumblr_mgefmouBe41rheqhwo1_500.gif",
-        "https://25.media.tumblr.com/2d366588387fac1c32a0ffe93f80463e/tumblr_n1cuqcLDrC1shrw6zo1_500.gif"
+        "https://25.media.tumblr.com/2d366588387fac1c32a0ffe93f80463e/tumblr_n1cuqcLDrC1shrw6zo1_500.gif",
+        "https://i.gifer.com/embedded/download/XdEb.gif",
+        "https://31.media.tumblr.com/f6c949843ab0bffbf4fb12a95b561d88/tumblr_mt8s8fiJpw1r3maj7o1_500.gif",
+        "https://i.pinimg.com/originals/c1/bd/7e/c1bd7e1124ff5b59bb08cdf4a3115614.gif",
+        "https://media.tenor.com/q46QmTzuKr4AAAAd/red-hot-chili-peppers-black-summer.gif",
+        "https://i.pinimg.com/originals/96/8d/63/968d63e310083cd36906c73088025568.gif",
+        "https://25.media.tumblr.com/8255f44e0debc2474e85ebb5cc236606/tumblr_mlkn6cFv601qi4n2uo1_500.gif",
+        "https://i.makeagif.com/media/2-01-2016/zLbBz-.gif"
     ];
 
 const body = document.body;
@@ -807,7 +814,7 @@ const body = document.body;
       }
 
         changeBackground();
-        const intervalId = setInterval(changeBackground, 3000);
+        const intervalId = setInterval(changeBackground, 2000);
 
         // Stop the background animation when the button is clicked
         startButton.addEventListener("click", function () {
@@ -820,9 +827,6 @@ const body = document.body;
         .then(() => startBackgroundAnimation())
         .catch(error => console.error("Error preloading images:", error));
 });
-
-
-
 
 function startGame() {
   nextButton.style.display = 'none'
@@ -1031,8 +1035,8 @@ function checkAnswerRoundTwo(selectedChoice, currentIndex) {
   const correctChoice = rockMusicQuizQuestions[currentQuestionIndex].correctOption;
 
   console.log(`Question: ${currentQuestion.question}`);
-  //console.log(`correct`, correctChoice)
   console.log(`selected ${selectedChoice}`);
+  console.log(`correct ${correctChoice}`)
 
   if (selectedChoice === correctChoice) {
     alert("Correct!");

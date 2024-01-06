@@ -10,6 +10,48 @@ body {
 
 }
 
+#start-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column; /* Adjusted to a column layout */
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+#start-title,
+#start-button {
+    margin-top: 20px; /* Adjust the margin as needed */
+    text-align: center; /* Center the text within the button */
+}
+
+#start-title {
+    font-weight: bolder;
+}
+
+#start-button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+
+#start-button:hover {
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.3);
+    background-color: rgb(143, 3, 143); /* Change the background color on hover */
+    color: white; /* You may adjust the text color for better visibility */
+}
+
+
+.start-description {
+    text-align: center; /* Center the text within the h4 element */
+    padding: 0 20px; /* Add padding to the top and bottom, adjust as needed */
+    font-weight: lighter;
+}
 
 #quiz-container {
     text-align: center;
