@@ -1,4 +1,4 @@
-let startContainer = document.getElementById("start-container"); // Get all elements from the HTML doc and store them in variables
+let startContainer = document.getElementById("start-container"); 
 let quizContainer = document.getElementById("quiz-container");
 let audioPlayer = document.getElementById("audio-player");
 let audioSource = document.getElementById("audio-source");
@@ -13,9 +13,7 @@ let finalScoreElement = document.getElementById("final-score");
 let startNextRoundButton = document.getElementById("start-next-round-button");
 let startNewGameButton = document.getElementById("start-new-game-button");
 let timerElement = document.getElementById("timer");
-let timerInterval; // Store the identifier returned by setInterval()
-
-// Add variables to fill in the quizz : 2 arrays of objects
+let timerInterval; 
 
 const audioFiles = [
   {
@@ -169,12 +167,12 @@ const audioFiles = [
     audio: "/audio/Aerosmith - Rag Doll.mp3",
   },
   {
-    choices: ["The Dandy Warhols", "Blur", "Franz Ferdinand", "Brian Jonestown Massacre"],
+    choices: ["Dandy Warhols", "Blur", "Franz Ferdinand", "Brian Jonestown Massacre"],
     correctChoice: "Brian Jonestown Massacre",
     audio: "/audio/Anemone - Brian Jonestown Massacre.mp3",
   },
   {
-    choices: ["Jet", "The Dandy Warhols", "Blur", "Muse"],
+    choices: ["Jet", "Dandy Warhols", "Blur", "Muse"],
     correctChoice: "Blur",
     audio: "/audio/Blur - Song 2 (Official Music Video).mp3",
   },
@@ -304,12 +302,12 @@ const audioFiles = [
     audio: "/audio/Sunday Bloody Sunday.mp3",
   },
   {
-    choices: ["Supertramp", "Electric Light Orchestra", "Yes", "The Moody Blues"],
+    choices: ["Supertramp", "Genesis", "Yes", "The Moody Blues"],
     correctChoice: "Supertramp",
     audio: "/audio/Supertramp - Breakfast In America (HQ).mp3",
   },
   {
-    choices: ["The Eagles", "Fleetwood Mac", "Creedence Clearwater Revival", "Lynyrd Skynyrd"],
+    choices: ["Eagles", "Fleetwood Mac", "The Verve", "Lynyrd Skynyrd"],
     correctChoice: "Eagles",
     audio: "/audio/Take It Easy.mp3",
   },
@@ -319,8 +317,8 @@ const audioFiles = [
     audio: "/audio/The Animals - House Of The Rising Sun (Music Video) [4K HD].mp3",
   },
   {
-    choices: ["The Velvet Underground", "The Dandy Warhols", "The Verve", "The Brian Jonestown Massacre"],
-    correctChoice: "The Dandy Warhols",
+    choices: ["Velvet Underground", "Dandy Warhols", "The Verve", "Brian Jonestown Massacre"],
+    correctChoice: "Dandy Warhols",
     audio: "/audio/The Dandy Warhols - Bohemian Like You.mp3",
   },
   {
@@ -352,10 +350,28 @@ const audioFiles = [
     choices: ["ACDC", "Van Halen", "Def Leppard", "Guns N' Roses"],
     correctChoice: "Van Halen",
     audio: "/audio/Van Halen - Jump.mp3",
+  },
+  {
+    choices: ["The Rolling Stones", "Van Halen", "Iggy Pop", "Ramones"],
+    correctChoice: "Iggy Pop",
+    audio: "/audio/Iggy Pop - The Passenger.mp3",
+  },
+  {
+    choices: ["Korn", "Slipknot", "Iggy Pop", "System of a Down"],
+    correctChoice: "System of a Down",
+    audio: "/audio/System Of A Down - Toxicity (lyrics).mp3",
+  },
+  {
+    choices: ["Dropkick Murphys", "Jethro Tull", "Iggy Pop", "Steppenwolf"],
+    correctChoice: "System of a Down",
+    audio: "/audio/Dropkick Murphys-Rose tattoo.mp3",
+  },
+  {
+    choices: ["Red Hot Chili Peppers", "Eagles", "The Who", "U2"],
+    correctChoice: "Eagles",
+    audio: "/audio/Hotel California - Eagles - Lyrics.mp3",
   }
 ];
-
-console.log(audioFiles.length);
 
 const rockMusicQuizQuestions = [
   {
@@ -721,72 +737,107 @@ const rockMusicQuizQuestions = [
     ],
     correctOption: "1980s, Los Angeles",
   },
+  { 
+    question: "Which metal band, formed in Birmingham in 1968, is often credited as one of the pioneers of heavy metal?",
+    options: ["Metallica", "Black Sabbath", "Iron Maiden", "Slayer"],
+    correctOption: "Black Sabbath",
+  },
+  {
+    question: "In metal music, what is the term used to describe the technique of playing two guitar notes simultaneously to create a harmonic sound?",
+    options: ["Power Chord", "Blast Beat", "Sweep Picking", "Tremolo Picking"],
+    correctOption: "Power Chord",
+  },
+  {
+    question: "The term 'rock and roll' is often credited to have originated from a 1934 song titled 'Rock and Roll' by which African-American artist?",
+    options: ["Chuck Berry", "Little Richard", "Sister Rosetta Tharpe", "Louis Jordan"],
+    correctOption: "Sister Rosetta Tharpe",
+  },
+  {
+    question:"Which American punk rock band, formed in 1976, is often regarded as the main pioneers of hardcore punk?",
+    options: ["Ramones", "Sex Pistols", "Dead Kennedys", "Black Flag"],
+    correctOption: "Black Flag",
+  },
+  {
+    question: "Which British pop rock band, formed in 1981, is known for hits like 'Every Breath You Take' and 'Roxanne'?",
+    options: ["The Rolling Stones", "The Police", "U2", "The Beatles"],
+    correctOption: "The Police",
+  }
 ];
 
+
 let timer = 15;
-let score = 0; // Initialise the score to 0
+let score = 0; 
 let rounds = 0;
 let currentRound = 1;
 let initialPlay = true;
 
 audioPlayer.addEventListener("play", () => {
   if (initialPlay) {
-    initialPlay = false; // the code within the conditional block should only run the first time the audio is played
+    initialPlay = false; 
   }
 });
 
 window.addEventListener("load", function () {
-  //  Make sure that functions will be executed when the corresponding buttons are clicked
+  
   startButton.addEventListener("click", startGame);
-  //nextButton.addEventListener("click", nextSong);
   startNextRoundButton.addEventListener("click", startSecondRound);
   startNewGameButton.addEventListener("click", startNewGame);
 });
 
-
- document.addEventListener("DOMContentLoaded", function () {
-    
-    const gifs = [
-        "https://media3.giphy.com/media/hmfMXXKdFABJ98Lvw6/giphy.gif",
-        "https://media.tenor.com/e38-1IwvE6oAAAAC/rock-festival.gif",
-        "https://media4.giphy.com/media/wKNShEiXo1V5SFwyMa/giphy.gif",
-        "https://media3.giphy.com/media/QkJJgKxQL0N3yDbAVx/giphy-downsized-large.gif?cid=6c09b952f8kwdx4pgid5x74dgqnfq0ii5dbbssqon6xf600x&ep=v1_internal_gif_by_id&rid=giphy-downsized-large.gif&ct=g",
-        "https://media3.giphy.com/media/fqtEQuOzTAB9QZOcAD/giphy.gif?cid=6c09b952tco8h08y49ilgqlrp9nlj00uksg1rva6gpwu2rs9&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
-        "https://media1.giphy.com/media/h4NEFAAzWRCl8efti2/giphy.gif?cid=6c09b9526onyapy377f9c5op5ua2ztbyai0a4ui4uh7lxxal&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
-        "https://i.gifer.com/origin/12/12b28c2002f52c48aca84d9ffe1c134c.gif",
-        "https://i.gifer.com/7JKb.gif",
-        "https://media1.giphy.com/media/jq0GElfMAi8CGwTkBX/giphy.gif?cid=6c09b952e01gbl71vplpa1lux05f5306fxks8uuc00ceeny2&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
-        "https://24.media.tumblr.com/10f219b798aefebef5de4e064d04cc05/tumblr_mlnd9ub2eq1rkehhdo1_500.gif",
-        "https://media.giphy.com/media/4WFgJDx1vpirOvTn4g/giphy.gif",
-        "https://media4.giphy.com/media/TK3p6PJV9uWJjWCK5O/giphy.gif?cid=6c09b9521nz2sabxx1uc9apt1ddl8rob1anjbe08aj1lxmjk&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
-        "https://media0.giphy.com/media/3ohs7QHXhJLudpeDok/giphy.gif?cid=6c09b952vwflkk8g3p5wk8u9c9ly7govebrllyc3fjordrey&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
-        "https://i.gifer.com/7AfF.gif",
-        "https://media1.giphy.com/media/rPltWzwhMb9nfMN3zS/giphy.gif?cid=6c09b952k3lkibvl24r84dpw6wqmkio7rix2di6tl5j48jmv&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
-        "https://i.pinimg.com/originals/54/da/35/54da35c5df0acf0b86bc3a8821b54269.gif",
-        "https://giffiles.alphacoders.com/267/26726.gif",
-        "https://i.pinimg.com/originals/d4/4a/7c/d44a7c1063d33d1e08721430359e2e41.gif",
-        "https://i.pinimg.com/originals/1f/40/73/1f4073e449f9ddbfbe4a054f21add5a2.gif",
-        "https://guidelive.imgix.net/1450899529-the-beatles-gif.gif",
-        "https://64.media.tumblr.com/5eb0f5a6cd32ebe6a6f7ed57841c5cb1/tumblr_mzo52wRoYg1sn7uyno1_500.gif",
-        "https://media3.giphy.com/media/5cH8h1R1HUkybfaDy7/giphy.gif?cid=6c09b952ciifxiitqapr5x0r35qnsaqxhmw8htthfzif7kys&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
-        "https://media2.giphy.com/media/26BRKmqUonCPPit1e/giphy.gif",
-        "https://i.pinimg.com/originals/11/a4/2a/11a42a328ac7441259221b6505d55619.gif",
-        "https://i0.wp.com/www.decoratedyouth.com/wp-content/uploads/2017/08/Tame-Impala-Panorama-Twitter-gif-Apocalypse-Dreams-2.gif?fit=1280%2C720&ssl=1",
-        "https://i.gifer.com/F0HP.gif",
-        "https://i.pinimg.com/originals/3d/65/2e/3d652e463c75550e19203ecd36fd0d80.gif",
-        "https://24.media.tumblr.com/12afe1d3c15df76848be911958304027/tumblr_mgefmouBe41rheqhwo1_500.gif",
-        "https://25.media.tumblr.com/2d366588387fac1c32a0ffe93f80463e/tumblr_n1cuqcLDrC1shrw6zo1_500.gif",
-        "https://i.gifer.com/embedded/download/XdEb.gif",
-        "https://31.media.tumblr.com/f6c949843ab0bffbf4fb12a95b561d88/tumblr_mt8s8fiJpw1r3maj7o1_500.gif",
-        "https://i.pinimg.com/originals/c1/bd/7e/c1bd7e1124ff5b59bb08cdf4a3115614.gif",
-        "https://media.tenor.com/q46QmTzuKr4AAAAd/red-hot-chili-peppers-black-summer.gif",
-        "https://i.pinimg.com/originals/96/8d/63/968d63e310083cd36906c73088025568.gif",
-        "https://25.media.tumblr.com/8255f44e0debc2474e85ebb5cc236606/tumblr_mlkn6cFv601qi4n2uo1_500.gif",
-        "https://i.makeagif.com/media/2-01-2016/zLbBz-.gif"
-    ];
+const gifs = [
+  "https://media3.giphy.com/media/hmfMXXKdFABJ98Lvw6/giphy.gif",
+  "https://media.tenor.com/e38-1IwvE6oAAAAC/rock-festival.gif",
+  "https://media4.giphy.com/media/wKNShEiXo1V5SFwyMa/giphy.gif",
+  "https://media3.giphy.com/media/QkJJgKxQL0N3yDbAVx/giphy-downsized-large.gif?cid=6c09b952f8kwdx4pgid5x74dgqnfq0ii5dbbssqon6xf600x&ep=v1_internal_gif_by_id&rid=giphy-downsized-large.gif&ct=g",
+  "https://media3.giphy.com/media/fqtEQuOzTAB9QZOcAD/giphy.gif?cid=6c09b952tco8h08y49ilgqlrp9nlj00uksg1rva6gpwu2rs9&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+  "https://media1.giphy.com/media/h4NEFAAzWRCl8efti2/giphy.gif?cid=6c09b9526onyapy377f9c5op5ua2ztbyai0a4ui4uh7lxxal&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+  "https://i.gifer.com/origin/12/12b28c2002f52c48aca84d9ffe1c134c.gif",
+  "https://i.gifer.com/7JKb.gif",
+  "https://media1.giphy.com/media/jq0GElfMAi8CGwTkBX/giphy.gif?cid=6c09b952e01gbl71vplpa1lux05f5306fxks8uuc00ceeny2&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+  "https://24.media.tumblr.com/10f219b798aefebef5de4e064d04cc05/tumblr_mlnd9ub2eq1rkehhdo1_500.gif",
+  "https://media.giphy.com/media/4WFgJDx1vpirOvTn4g/giphy.gif",
+  "https://media4.giphy.com/media/TK3p6PJV9uWJjWCK5O/giphy.gif?cid=6c09b9521nz2sabxx1uc9apt1ddl8rob1anjbe08aj1lxmjk&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+  "https://media0.giphy.com/media/3ohs7QHXhJLudpeDok/giphy.gif?cid=6c09b952vwflkk8g3p5wk8u9c9ly7govebrllyc3fjordrey&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+  "https://i.gifer.com/7AfF.gif",
+  "https://media1.giphy.com/media/rPltWzwhMb9nfMN3zS/giphy.gif?cid=6c09b952k3lkibvl24r84dpw6wqmkio7rix2di6tl5j48jmv&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+  "https://i.pinimg.com/originals/54/da/35/54da35c5df0acf0b86bc3a8821b54269.gif",
+  "https://giffiles.alphacoders.com/267/26726.gif",
+  "https://i.pinimg.com/originals/d4/4a/7c/d44a7c1063d33d1e08721430359e2e41.gif",
+  "https://i.pinimg.com/originals/1f/40/73/1f4073e449f9ddbfbe4a054f21add5a2.gif",
+  "https://guidelive.imgix.net/1450899529-the-beatles-gif.gif",
+  "https://64.media.tumblr.com/5eb0f5a6cd32ebe6a6f7ed57841c5cb1/tumblr_mzo52wRoYg1sn7uyno1_500.gif",
+  "https://media3.giphy.com/media/5cH8h1R1HUkybfaDy7/giphy.gif?cid=6c09b952ciifxiitqapr5x0r35qnsaqxhmw8htthfzif7kys&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+  "https://media2.giphy.com/media/26BRKmqUonCPPit1e/giphy.gif",
+  "https://i.pinimg.com/originals/11/a4/2a/11a42a328ac7441259221b6505d55619.gif",
+  "https://i0.wp.com/www.decoratedyouth.com/wp-content/uploads/2017/08/Tame-Impala-Panorama-Twitter-gif-Apocalypse-Dreams-2.gif?fit=1280%2C720&ssl=1",
+  "https://i.gifer.com/F0HP.gif",
+  "https://i.pinimg.com/originals/3d/65/2e/3d652e463c75550e19203ecd36fd0d80.gif",
+  "https://24.media.tumblr.com/12afe1d3c15df76848be911958304027/tumblr_mgefmouBe41rheqhwo1_500.gif",
+  "https://25.media.tumblr.com/2d366588387fac1c32a0ffe93f80463e/tumblr_n1cuqcLDrC1shrw6zo1_500.gif",
+  "https://i.gifer.com/embedded/download/XdEb.gif",
+  "https://31.media.tumblr.com/f6c949843ab0bffbf4fb12a95b561d88/tumblr_mt8s8fiJpw1r3maj7o1_500.gif",
+  "https://i.pinimg.com/originals/c1/bd/7e/c1bd7e1124ff5b59bb08cdf4a3115614.gif",
+  "https://media.tenor.com/q46QmTzuKr4AAAAd/red-hot-chili-peppers-black-summer.gif",
+  "https://i.pinimg.com/originals/96/8d/63/968d63e310083cd36906c73088025568.gif",
+  "https://25.media.tumblr.com/8255f44e0debc2474e85ebb5cc236606/tumblr_mlkn6cFv601qi4n2uo1_500.gif",
+  "https://i.makeagif.com/media/2-01-2016/zLbBz-.gif",
+  "https://media1.giphy.com/media/G3yzs0NsFthmU9jo4f/giphy.gif?cid=82a1493b6ebxw9x2pwxmmtkcd789tyr4wlbm94ybuzpehlkt&ep=v1_videos_related&rid=giphy.gif&ct=v",
+  "https://media1.giphy.com/media/hVs2iwWNHVf502W9CS/giphy.gif?cid=6c09b9520immk01l13evclzk2mqq6l1lg9x0u0tu8t1q66an&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+  "https://media4.giphy.com/media/29qL41VRYfO3awDYQg/giphy.gif?cid=6c09b9525sty41iubldssvr6cejtq95axhj51mwok2xdpbk5&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+  "https://media4.giphy.com/media/YzXhAWxuHqDe7MBqQQ/giphy.gif",
+  "https://64.media.tumblr.com/06068c97812016e8397266085e77f42b/tumblr_pc6vfdLBUf1xtan7mo1_500.gif",
+  "https://media4.giphy.com/media/dpb8hnQBzZ6jC/giphy.gif",
+  "https://i.pinimg.com/originals/e8/1a/74/e81a746cca2bbf56e206a1c17224ecd3.gif",
+  "https://24.media.tumblr.com/tumblr_md3hshp6dT1ri7118o1_500.gif",
+  "https://i.pinimg.com/originals/83/a2/36/83a236939384d6fabec4af8d57f5f1f0.gif",
+  "https://i.gifer.com/IobX.gif",
+  "https://i.gifer.com/TGPB.gif",
+  "https://media3.giphy.com/media/xT0xeMMNdGzYeOVQcM/giphy.gif?cid=6c09b952hn5ct4b6scsubyr48uz7vrxwnuf1yra0sakaot0y&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+];
 
 const body = document.body;
-    
+
+ document.addEventListener("DOMContentLoaded", function () {
 
     function preloadImages(urls) {
         return Promise.all(urls.map(url => {
@@ -805,32 +856,34 @@ const body = document.body;
 
   gifs.sort(randomSort);
 
-    function startBackgroundAnimation() {
-      let currentGifIndex = 0;
-
-      function changeBackground() {
-          body.style.backgroundImage = `url('${gifs[currentGifIndex]}')`;
-          currentGifIndex = (currentGifIndex + 1) % gifs.length;
-      }
-
-        changeBackground();
-        const intervalId = setInterval(changeBackground, 2000);
-      
-
-        startButton.addEventListener("click", function () {
-            clearInterval(intervalId);
-            body.style.backgroundImage = "url('https://support.musicgateway.com/wp-content/uploads/2023/03/ana-grave-gHcWaeldgtQ-unsplash-scaled.jpg')"; // Add a static background
-        });
-      }
-
-        startNextRoundButton.addEventListener("click", function(){
-          body.style.backgroundImage = "url('https://thoughtcatalog.com/wp-content/uploads/2021/10/Classic-Rock-Trivia.jpg?w=1920&h=1280&crop=1')"
-        });
-
     preloadImages(gifs)
         .then(() => startBackgroundAnimation())
         .catch(error => console.error("Error preloading images:", error));
 });
+
+function startBackgroundAnimation() {
+  
+  const body = document.body;
+  let currentGifIndex = 0;
+
+  function changeBackground() {
+      body.style.backgroundImage = `url('${gifs[currentGifIndex]}')`;
+      currentGifIndex = (currentGifIndex + 1) % gifs.length;
+  }
+
+    changeBackground();
+    const intervalId = setInterval(changeBackground, 2000);
+
+    startNextRoundButton.addEventListener("click", function(){
+      clearInterval(intervalId)
+      body.style.backgroundImage = "url('https://thoughtcatalog.com/wp-content/uploads/2021/10/Classic-Rock-Trivia.jpg?w=1920&h=1280&crop=1')"
+    });
+
+    startButton.addEventListener("click", function () {
+        clearInterval(intervalId);
+        body.style.backgroundImage = "url('https://support.musicgateway.com/wp-content/uploads/2023/03/ana-grave-gHcWaeldgtQ-unsplash-scaled.jpg')"; // Add a static background
+    });
+  }
 
 function startGame() {
   nextButton.style.display = 'none'
@@ -843,6 +896,8 @@ function startGame() {
 
   startNextRoundButton.style.display = "none";
   console.log("Hiding next-round");
+
+  endContainer.style.display = "none";
 
   startNextRound()
 }
@@ -857,7 +912,6 @@ function startNextRound() {
   startNextRoundLogic();
 }
 
-
 function startNextRoundLogic() {
   // structure round 1 and round 2 logic
   if (currentRound === 1) {
@@ -867,13 +921,14 @@ function startNextRoundLogic() {
       questionContainer.innerText = "Guess the song";
       startNextRoundButton.style.display = "none";
       questionSection.style.display = "none";
+      endContainer.style.display = "none";
     } else {
       quizContainer.style.display = "none"; // This line might be unnecessary, but it helps me displaying the Start Next Round in another screen
       console.log("Hiding quizContainer");
 
       startNextRoundButton.style.display = "block";
       console.log("Displaying startNextRoundButton");
-
+      startBackgroundAnimation()
       audioPlayer.pause();
       console.log("Pausing audioPlayer");
 
@@ -883,6 +938,7 @@ function startNextRoundLogic() {
     startNextRoundButton.style.display = "none";
     nextButton.style.display = "none";
     questionSection.style.display = "block";
+    endContainer.style.display = "none";
 
     if (rounds < 6) {
       rounds++;
@@ -928,20 +984,21 @@ function gameOver() {
       sentenceElement.textContent = lowScoreSentence;
   }
 
+  imageElement.style.width = '300px';
+
   endContainer.appendChild(imageElement);
   endContainer.appendChild(sentenceElement);
 }
 
-
-
 function startNewGame() {
   currentRound = 1;
   rounds = 0;
-  score = 0; // PROBLEM: I can see the score from first game before clicking on an answer
+  score = 0;
   endContainer.style.display = "none";
   startNextRoundButton.style.display = "none";
 
   startNextRound();  
+  
 }
 
 function nextSong() {
@@ -1082,7 +1139,6 @@ function checkAnswerRoundTwo(selectedChoice, currentIndex) {
   setTimeout(startNextRoundLogic, 1000);
   rockMusicQuizQuestions.splice(currentQuestionIndex, 1)
 }
-
 
 function playCorrectSound() {
   const correctSound = new Audio('/sounds/correctAnswer.mp3');

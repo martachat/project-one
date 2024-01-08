@@ -1,27 +1,47 @@
+@font-face {
+    font-family: 'LarsseitBold';
+    src: url('/fonts/Larsseit-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'LarsseitThin';
+    src: url('/fonts/Larsseit.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'LarsseitThin', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-size: cover; /* Ensure the background covers the entire viewport */
-    transition: background-image 0.5s ease; /* Add a smooth transition effect */
+    background-size: cover; 
+    transition: background-image 0.5s ease; 
 }
+
+h1, h2, h3 {
+    font-family: 'LarsseitBold', sans-serif; 
+  }
 
 #start-container {
     background-color: rgba(255, 255, 255, 0.8);
     display: flex;
-    flex-direction: column; /* Adjusted to a column layout */
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     padding: 30px;
+    width: 80%;
 }
+
 
 #start-title,
 #start-button {
-    margin-top: 20px; /* Adjust the margin as needed */
-    text-align: center; /* Center the text within the button */
+    margin-top: 20px; 
+    text-align: center; 
 }
 
 #start-title {
@@ -31,6 +51,7 @@ body {
 .choice-btn,
 #start-new-game-button,
 #start-button {
+    font-family: 'LarsseitThin', sans-serif;
     background-color: black;
     color: white;
     padding: 10px 20px;
@@ -43,14 +64,14 @@ body {
 
 #start-button:hover {
     box-shadow: 0 12px 18px rgba(0, 0, 0, 0.3);
-    background-color: rgb(72, 0, 72); /* Change the background color on hover */
-    color: white; /* You may adjust the text color for better visibility */
+    background-color: rgb(72, 0, 72); 
+    color: white; 
 }
 
 
 .start-description {
-    text-align: center; /* Center the text within the h4 element */
-    padding: 0 20px; /* Add padding to the top and bottom, adjust as needed */
+    text-align: center; 
+    padding: 0 20px; 
     font-weight: lighter;
 }
 
@@ -60,10 +81,9 @@ body {
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.8);
     display: flex;
-    flex-direction: column; /* Adjusted to a column layout */
-    padding: 30px;
+    flex-direction: column; 
+    padding: 50px;
 }
-
 
 #question-container {
     margin-bottom: 20px;
@@ -78,6 +98,16 @@ body {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
+}
+
+#end-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    width: 80%;
 }
 
 
