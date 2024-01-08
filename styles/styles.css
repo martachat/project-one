@@ -7,7 +7,6 @@ body {
     margin: 0;
     background-size: cover; /* Ensure the background covers the entire viewport */
     transition: background-image 0.5s ease; /* Add a smooth transition effect */
-
 }
 
 #start-container {
@@ -29,6 +28,8 @@ body {
     font-weight: bolder;
 }
 
+.choice-btn,
+#start-new-game-button,
 #start-button {
     background-color: black;
     color: white;
@@ -42,7 +43,7 @@ body {
 
 #start-button:hover {
     box-shadow: 0 12px 18px rgba(0, 0, 0, 0.3);
-    background-color: rgb(143, 3, 143); /* Change the background color on hover */
+    background-color: rgb(72, 0, 72); /* Change the background color on hover */
     color: white; /* You may adjust the text color for better visibility */
 }
 
@@ -55,7 +56,14 @@ body {
 
 #quiz-container {
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column; /* Adjusted to a column layout */
+    padding: 30px;
 }
+
 
 #question-container {
     margin-bottom: 20px;

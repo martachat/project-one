@@ -815,13 +815,17 @@ const body = document.body;
 
         changeBackground();
         const intervalId = setInterval(changeBackground, 2000);
+      
 
-        // Stop the background animation when the button is clicked
         startButton.addEventListener("click", function () {
             clearInterval(intervalId);
-            body.style.backgroundImage = "none"; // Add a static background
+            body.style.backgroundImage = "url('https://support.musicgateway.com/wp-content/uploads/2023/03/ana-grave-gHcWaeldgtQ-unsplash-scaled.jpg')"; // Add a static background
         });
-    }
+      }
+
+        startNextRoundButton.addEventListener("click", function(){
+          body.style.backgroundImage = "url('https://thoughtcatalog.com/wp-content/uploads/2021/10/Classic-Rock-Trivia.jpg?w=1920&h=1280&crop=1')"
+        });
 
     preloadImages(gifs)
         .then(() => startBackgroundAnimation())
@@ -834,7 +838,7 @@ function startGame() {
   startContainer.style.display = "none";
   console.log("Hiding start-container");
 
-  quizContainer.style.display = "block"; // PROBLEM : first object does not display options, connected to previous problem
+  quizContainer.style.display = "block"; 
   console.log("Displaying quiz-container");
 
   startNextRoundButton.style.display = "none";
@@ -849,8 +853,10 @@ function startNextRound() {
   quizContainer.style.display = "block";
   startNextRoundButton.style.display = "block";
   endContainer.style.display = "none";
+
   startNextRoundLogic();
 }
+
 
 function startNextRoundLogic() {
   // structure round 1 and round 2 logic
@@ -901,8 +907,32 @@ function gameOver() {
   quizContainer.style.display = "none";
   startNextRoundButton.style.display = "none";
   endContainer.style.display = "block";
-  finalScoreElement.textContent = score;
+
+  const finalScore = score;
+  finalScoreElement.textContent = finalScore;
+
+  const imageElement = document.createElement('img');
+  const sentenceElement = document.createElement('p');
+
+  const highScoreImagePath = 'https://i.gifer.com/L4T.gif';
+  const lowScoreImagePath = 'https://media1.tenor.com/m/Lhsnu5y9BxcAAAAC/robin-you-rule.gif';
+
+  const highScoreSentence = 'Rock on! You did great!';
+  const lowScoreSentence = 'Oops! Looks like you need to crank up the volume and try again!';
+
+  if (finalScore > 6) {
+      imageElement.src = highScoreImagePath;
+      sentenceElement.textContent = highScoreSentence;
+  } else {
+      imageElement.src = lowScoreImagePath;
+      sentenceElement.textContent = lowScoreSentence;
+  }
+
+  endContainer.appendChild(imageElement);
+  endContainer.appendChild(sentenceElement);
 }
+
+
 
 function startNewGame() {
   currentRound = 1;
@@ -910,8 +940,8 @@ function startNewGame() {
   score = 0; // PROBLEM: I can see the score from first game before clicking on an answer
   endContainer.style.display = "none";
   startNextRoundButton.style.display = "none";
-  startNextRound();
-  //startGame()
+
+  startNextRound();  
 }
 
 function nextSong() {
@@ -1017,9 +1047,11 @@ function checkAnswer(selectedChoice, currentIndex) {
   console.log(`selected ${selectedChoice}`);
 
   if (selectedChoice === correctChoice) {
+    playCorrectSound();
     alert("Correct!");
     score += 1;
   } else {
+    playIncorrectSound();
     alert("Incorrect!");
   }
 
@@ -1039,14 +1071,27 @@ function checkAnswerRoundTwo(selectedChoice, currentIndex) {
   console.log(`correct ${correctChoice}`)
 
   if (selectedChoice === correctChoice) {
+    playCorrectSound();
     alert("Correct!");
     score += 1;
   } else {
+    playIncorrectSound();
     alert("Incorrect!");
   }
   scoreElement.innerHTML = score;
   setTimeout(startNextRoundLogic, 1000);
   rockMusicQuizQuestions.splice(currentQuestionIndex, 1)
+}
+
+
+function playCorrectSound() {
+  const correctSound = new Audio('/sounds/correctAnswer.mp3');
+  correctSound.play();
+}
+
+function playIncorrectSound() {
+  const incorrectSound = new Audio('/sounds/wrongAnswer.mp3');
+  incorrectSound.play();
 }
 
 function hidePlayerAndCheck() {
