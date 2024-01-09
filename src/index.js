@@ -167,7 +167,7 @@ const audioFiles = [
     audio: "/audio/Aerosmith - Rag Doll.mp3",
   },
   {
-    choices: ["Dandy Warhols", "Blur", "Franz Ferdinand", "Brian Jonestown Massacre"],
+    choices: ["Dandy Warhols", "Blur", "Muse", "Brian Jonestown Massacre"],
     correctChoice: "Brian Jonestown Massacre",
     audio: "/audio/Anemone - Brian Jonestown Massacre.mp3",
   },
@@ -317,7 +317,7 @@ const audioFiles = [
     audio: "/audio/The Animals - House Of The Rising Sun (Music Video) [4K HD].mp3",
   },
   {
-    choices: ["Velvet Underground", "Dandy Warhols", "The Verve", "Brian Jonestown Massacre"],
+    choices: ["Velvet Underground", "Dandy Warhols", "The Verve", "Blur"],
     correctChoice: "Dandy Warhols",
     audio: "/audio/The Dandy Warhols - Bohemian Like You.mp3",
   },
@@ -363,7 +363,7 @@ const audioFiles = [
   },
   {
     choices: ["Dropkick Murphys", "Jethro Tull", "Iggy Pop", "Steppenwolf"],
-    correctChoice: "System of a Down",
+    correctChoice: "Dropkick Murphys",
     audio: "/audio/Dropkick Murphys-Rose tattoo.mp3",
   },
   {
@@ -765,7 +765,7 @@ const rockMusicQuizQuestions = [
 ];
 
 
-let timer = 15;
+let timer = 30;
 let score = 0; 
 let rounds = 0;
 let currentRound = 1;
@@ -898,8 +898,8 @@ function startGame() {
   console.log("Hiding next-round");
 
   endContainer.style.display = "none";
-
-  startNextRound()
+  
+  startNextRound();
 }
 
 function startNextRound() {
@@ -908,7 +908,7 @@ function startNextRound() {
   quizContainer.style.display = "block";
   startNextRoundButton.style.display = "block";
   endContainer.style.display = "none";
-
+  
   startNextRoundLogic();
 }
 
@@ -944,8 +944,8 @@ function startNextRoundLogic() {
       rounds++;
       nextQuestion();
     } else {
+      console.log("else game over")
       gameOver();
-      // backgroundAudio.pause() -- consider if adding it or not later
     }
   }
 }
@@ -955,20 +955,22 @@ function startSecondRound() {
   rounds = 0;
   quizContainer.style.display = "block";
   endContainer.style.display = "none";
-  //backgroundAudio.play() -- consider if adding it or not later
+ 
   startNextRoundLogic();
 }
 
 function gameOver() {
+
+  clearInterval(timerInterval);
   quizContainer.style.display = "none";
   startNextRoundButton.style.display = "none";
-  endContainer.style.display = "block";
+  endContainer.style.display = "flex";
 
   const finalScore = score;
   finalScoreElement.textContent = finalScore;
 
-  const imageElement = document.createElement('img');
-  const sentenceElement = document.createElement('p');
+  const imageElement = document.getElementById('end-image');
+  const sentenceElement = document.getElementById('end-sentence');
 
   const highScoreImagePath = 'https://i.gifer.com/L4T.gif';
   const lowScoreImagePath = 'https://media1.tenor.com/m/Lhsnu5y9BxcAAAAC/robin-you-rule.gif';
@@ -976,29 +978,20 @@ function gameOver() {
   const highScoreSentence = 'Rock on! You did great!';
   const lowScoreSentence = 'Oops! Looks like you need to crank up the volume and try again!';
 
-  if (finalScore > 6) {
+  if (finalScore > 5) {
       imageElement.src = highScoreImagePath;
       sentenceElement.textContent = highScoreSentence;
+      playBackgroundSound("/sounds/WE ARE THE CHAMPION, SOUND EFFECT.mp3")
   } else {
       imageElement.src = lowScoreImagePath;
       sentenceElement.textContent = lowScoreSentence;
+      playBackgroundSound("/sounds/Fail Sound Effect.mp3")
   }
-
-  imageElement.style.width = '300px';
-
-  endContainer.appendChild(imageElement);
-  endContainer.appendChild(sentenceElement);
 }
 
-function startNewGame() {
-  currentRound = 1;
-  rounds = 0;
-  score = 0;
-  endContainer.style.display = "none";
-  startNextRoundButton.style.display = "none";
 
-  startNextRound();  
-  
+function startNewGame() {
+  location.reload();   
 }
 
 function nextSong() {
@@ -1028,7 +1021,7 @@ function nextSong() {
     audioPlayer.disabled = false;
     audioPlayer.load();
     audioPlayer.play();
-    startTimer(15);
+    startTimer(30);
   }
 }
 
@@ -1052,7 +1045,7 @@ function nextQuestion() {
   }
 
   audioPlayer.disabled = true;
-  startTimer(15);
+  startTimer(30);
 }
 
 function getRandomAudioIndex() {
@@ -1080,6 +1073,13 @@ function startTimer(durationInSeconds) {
     if (remainingTime > 0) {
       remainingTime -= 1;
       timerElement.innerHTML = `Time: ${remainingTime}`;
+
+      if (remainingTime <= 10) {
+        timerElement.style.color = 'red';
+      } else {
+        timerElement.style.color = ''; 
+      }
+
     } else {
       clearInterval(timerInterval);
       onTimerEnd();
@@ -1096,7 +1096,7 @@ function onTimerEnd() {
 function checkAnswer(selectedChoice, currentIndex) {
   console.log(rounds);
   const currentAudioIndex = currentIndex;
-  // const currentAudio = audioFiles[currentAudioIndex]
+  
   const correctChoice = audioFiles[currentAudioIndex].correctChoice;
 
   console.log(`correct`, correctChoice);
@@ -1148,6 +1148,11 @@ function playCorrectSound() {
 function playIncorrectSound() {
   const incorrectSound = new Audio('/sounds/wrongAnswer.mp3');
   incorrectSound.play();
+}
+
+function playBackgroundSound(soundFilePath) {
+  const BackgroundAudio = new Audio(soundFilePath); // Change the variable name to avoid conflicts
+  BackgroundAudio.play();
 }
 
 function hidePlayerAndCheck() {

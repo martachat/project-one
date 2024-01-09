@@ -61,7 +61,8 @@ h1, h2, h3 {
     transition: box-shadow 0.3s ease;
 }
 
-
+.choice-btn:hover,
+#start-new-game-button:hover,
 #start-button:hover {
     box-shadow: 0 12px 18px rgba(0, 0, 0, 0.3);
     background-color: rgb(72, 0, 72); 
@@ -107,7 +108,7 @@ h1, h2, h3 {
     align-items: center;
     justify-content: center;
     padding: 30px;
-    width: 80%;
+    width: 60%;
 }
 
 
