@@ -764,7 +764,6 @@ const rockMusicQuizQuestions = [
   }
 ];
 
-
 let timer = 30;
 let score = 0; 
 let rounds = 0;
@@ -989,7 +988,6 @@ function gameOver() {
   }
 }
 
-
 function startNewGame() {
   location.reload();   
 }
@@ -1076,8 +1074,13 @@ function startTimer(durationInSeconds) {
 
       if (remainingTime <= 10) {
         timerElement.style.color = 'red';
+        if (!tickingSoundPlayed) {
+          playBackgroundSound('/sounds/Time lapseclock lapse.mp3'); 
+          tickingSoundPlayed = true;
+        }
       } else {
         timerElement.style.color = ''; 
+        tickingSoundPlayed = false;
       }
 
     } else {
@@ -1151,8 +1154,8 @@ function playIncorrectSound() {
 }
 
 function playBackgroundSound(soundFilePath) {
-  const BackgroundAudio = new Audio(soundFilePath); // Change the variable name to avoid conflicts
-  BackgroundAudio.play();
+  const backgroundAudio = new Audio(soundFilePath); // Change the variable name to avoid conflicts
+  backgroundAudio.play();
 }
 
 function hidePlayerAndCheck() {
