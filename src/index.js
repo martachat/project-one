@@ -885,24 +885,18 @@ function startBackgroundAnimation() {
   }
 
 function startGame() {
-  nextButton.style.display = 'none'
 
+  nextButton.style.display = 'none';
   startContainer.style.display = "none";
-  console.log("Hiding start-container");
-
   quizContainer.style.display = "block"; 
-  console.log("Displaying quiz-container");
-
   startNextRoundButton.style.display = "none";
-  console.log("Hiding next-round");
-
   endContainer.style.display = "none";
   
   startNextRound();
 }
 
 function startNextRound() {
-  // move to round 1 to round 2
+  
   startContainer.style.display = "none";
   quizContainer.style.display = "block";
   startNextRoundButton.style.display = "block";
@@ -912,7 +906,7 @@ function startNextRound() {
 }
 
 function startNextRoundLogic() {
-  // structure round 1 and round 2 logic
+  
   if (currentRound === 1) {
     if (rounds < 5) {
       rounds++;
@@ -922,15 +916,13 @@ function startNextRoundLogic() {
       questionSection.style.display = "none";
       endContainer.style.display = "none";
     } else {
-      quizContainer.style.display = "none"; // This line might be unnecessary, but it helps me displaying the Start Next Round in another screen
-      console.log("Hiding quizContainer");
+      quizContainer.style.display = "none"; 
 
       startNextRoundButton.style.display = "block";
-      console.log("Displaying startNextRoundButton");
+      
       startBackgroundAnimation()
       audioPlayer.pause();
-      console.log("Pausing audioPlayer");
-
+      
       questionContainer.innerText = "Pick the right option";
     }
   } else if (currentRound === 2) {
@@ -943,7 +935,6 @@ function startNextRoundLogic() {
       rounds++;
       nextQuestion();
     } else {
-      console.log("else game over")
       gameOver();
     }
   }
@@ -980,11 +971,11 @@ function gameOver() {
   if (finalScore > 5) {
       imageElement.src = highScoreImagePath;
       sentenceElement.textContent = highScoreSentence;
-      playBackgroundSound("/sounds/WE ARE THE CHAMPION, SOUND EFFECT.mp3")
+      playBackgroundSound("./sounds/WE ARE THE CHAMPION, SOUND EFFECT.mp3")
   } else {
       imageElement.src = lowScoreImagePath;
       sentenceElement.textContent = lowScoreSentence;
-      playBackgroundSound("/sounds/Fail Sound Effect.mp3")
+      playBackgroundSound("./sounds/Fail Sound Effect.mp3")
   }
 }
 
@@ -1078,6 +1069,9 @@ function startTimer(durationInSeconds) {
           playBackgroundSound('./sounds/Time lapseclock lapse.mp3'); 
           tickingSoundPlayed = true;
         }
+        if (remainingTime === 0) {
+          playBackgroundSound('./sounds/wrongAnswer.mp3'); 
+        }
       } else {
         timerElement.style.color = ''; 
         tickingSoundPlayed = false;
@@ -1102,10 +1096,6 @@ function checkAnswer(selectedChoice, currentIndex) {
   
   const correctChoice = audioFiles[currentAudioIndex].correctChoice;
 
-  console.log(`correct`, correctChoice);
-
-  console.log(`selected ${selectedChoice}`);
-
   if (selectedChoice === correctChoice) {
     playCorrectSound();
     alert("Correct!");
@@ -1125,10 +1115,6 @@ function checkAnswerRoundTwo(selectedChoice, currentIndex) {
   const currentQuestionIndex = currentIndex;
   const currentQuestion = rockMusicQuizQuestions[currentQuestionIndex];
   const correctChoice = rockMusicQuizQuestions[currentQuestionIndex].correctOption;
-
-  console.log(`Question: ${currentQuestion.question}`);
-  console.log(`selected ${selectedChoice}`);
-  console.log(`correct ${correctChoice}`)
 
   if (selectedChoice === correctChoice) {
     playCorrectSound();
@@ -1154,12 +1140,12 @@ function playIncorrectSound() {
 }
 
 function playBackgroundSound(soundFilePath) {
-  const backgroundAudio = new Audio(soundFilePath); // Change the variable name to avoid conflicts
+  const backgroundAudio = new Audio(soundFilePath); 
   backgroundAudio.play();
 }
 
 function hidePlayerAndCheck() {
-  // allow transition between rounds
+  
   audioPlayer.style.display = "none";
   setTimeout(startNextRoundLogic, 1000);
 }
