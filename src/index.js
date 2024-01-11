@@ -19,112 +19,112 @@ const audioFiles = [
   {
     choices: ["ACDC", "Black Sabbath", "Motorhead", "Deep Purple"],
     correctChoice: "ACDC",
-    audio: "/audio/ACDC - Back In Black.mp3",
+    audio: "./audio/ACDC - Back In Black.mp3",
   },
   {
     choices: ["ACDC", "Metallica", "Black Sabbath", "Ozzy Osbourne"],
     correctChoice: "Black Sabbath",
-    audio: "/audio/Black Sabbath - Paranoid (Official Audio).mp3",
+    audio: "./audio/Black Sabbath - Paranoid (Official Audio).mp3",
   },
   {
     choices: ["Foo Fighters", "Nirvana", "Pearl Jam", "Smashing Pumpkins"],
     correctChoice: "Nirvana",
-    audio: "/audio/Nirvana - Lithium.mp3",
+    audio: "./audio/Nirvana - Lithium.mp3",
   },
   {
     choices: ["Audioslave","John Frusciante", "Pearl Jam", "Red Hot Chili Peppers"],
     correctChoice: "Red Hot Chili Peppers",
-    audio: "/audio/onlymp3.to - Red Hot Chili Peppers Otherside Official Music Video -rn_YodiJO6k-192k-1703019080.mp3",
+    audio: "./audio/onlymp3.to - Red Hot Chili Peppers Otherside Official Music Video -rn_YodiJO6k-192k-1703019080.mp3",
   },
   {
     choices: ["Village People", "Carpenters", "ABBA", "The Weather Girls"],
     correctChoice: "ABBA",
-    audio: "/audio/Abba - Waterloo (Official Music Video).mp3",
+    audio: "./audio/Abba - Waterloo (Official Music Video).mp3",
   },
   {
     choices: ["Metallica", "Megadeath", "Judas Priest", "Exodus"],
     correctChoice: "Metallica",
-    audio: "/audio/Enter Sandman (Remastered).mp3",
+    audio: "./audio/Enter Sandman (Remastered).mp3",
   },
   {
     choices: ["Arctic Monkeys", "Franz Ferdinand", "The Killers","The Strokes"],
     correctChoice: "The Strokes",
-    audio: "/audio/Last Nite - The Strokes (with Lyrics).mp3",
+    audio: "./audio/Last Nite - The Strokes (with Lyrics).mp3",
   },
   {
     choices: ["The Rolling Stones", "The Who", "Aerosmith", "Led Zeppelin"],
     correctChoice: "Led Zeppelin",
-    audio: "/audio/onlymp3.to - Led Zeppelin Whole Lotta Love Official Music Video -HQmmM_qwG4k-192k-1703340126.mp3",
+    audio: "./audio/onlymp3.to - Led Zeppelin Whole Lotta Love Official Music Video -HQmmM_qwG4k-192k-1703340126.mp3",
   },
   {
     choices: ["Jefferson Airplane", "The Doors", "Cream", "Pink Floyd"],
     correctChoice: "The Doors",
-    audio: "/audio/Soul Kitchen.mp3",
+    audio: "./audio/Soul Kitchen.mp3",
   },
   {
     choices: ["Lenny Kravitz", "Led Zeppelin", "Jimi Hendrix", "Steppenwolf"],
     correctChoice: "Jimi Hendrix",
-    audio: "/audio/The Jimi Hendrix Experience - All Along The Watchtower (Official Audio).mp3",
+    audio: "./audio/The Jimi Hendrix Experience - All Along The Watchtower (Official Audio).mp3",
   },
   {
     choices: ["Cindy Lauper", "Blondie", "The Bangles", "Eurythmics"],
     correctChoice: "Blondie",
-    audio: "/audio/Blondie - Heart Of Glass.mp3",
+    audio: "./audio/Blondie - Heart Of Glass.mp3",
   },
   {
     choices: ["Dire Straits", "The Who", "U2", "Led Zeppelin"],
     correctChoice: "Dire Straits",
-    audio: "/audio/Dire Straits - Sultans Of Swing (Official Music Video).mp3",
+    audio: "./audio/Dire Straits - Sultans Of Swing (Official Music Video).mp3",
   },
   {
     choices: ["Jerry Garcia Band", "The Doors", "Grateful Dead","Dead&Company"],
     correctChoice: "Grateful Dead",
-    audio: "/audio/Friend of the Devil (2013 Remaster).mp3",
+    audio: "./audio/Friend of the Devil (2013 Remaster).mp3",
   },
   {
     choices: ["The Rolling Stones", "The Beatles", "Deep Purple", "The Who"],
     correctChoice: "The Beatles",
-    audio: "/audio/Helter Skelter (Remastered 2009).mp3",
+    audio: "./audio/Helter Skelter (Remastered 2009).mp3",
   },
   {
     choices: ["Coldplay", "Oasis", "Beady Eye", "Radiohead"],
     correctChoice: "Oasis",
-    audio: "/audio/Oasis - Stop Crying Your Heart Out (Official Video).mp3",
+    audio: "./audio/Oasis - Stop Crying Your Heart Out (Official Video).mp3",
   },
   {
     choices: ["John Cale", "Bob Dylan", "Lou Reed", "Neil Young"],
     correctChoice: "Lou Reed",
-    audio: "/audio/Lou Reed - Perfect Day.mp3",
+    audio: "./audio/Lou Reed - Perfect Day.mp3",
   },
   {
     choices: ["Sex Pistols", "The Clash", "Ramones", "The Damned"],
     correctChoice: "The Clash",
-    audio: "/audio/London Calling.mp3",
+    audio: "./audio/London Calling.mp3",
   },
   {
     choices: ["Sex Pistols", "The Clash", "Ramones", "The Damned"],
     correctChoice: "Ramones",
-    audio: "/audio/Blitzkrieg Bop (2016 Remaster).mp3",
+    audio: "./audio/Blitzkrieg Bop (2016 Remaster).mp3",
   },
   {
     choices: ["The White Stripes", "Eurythmics", "The Black Keys", "The Kills"],
     correctChoice: "The White Stripes",
-    audio: "/audio/Seven Nation Army.mp3",
+    audio: "./audio/Seven Nation Army.mp3",
   },
   {
     choices: ["The Kinks", "The Who", "Cream", "The Rolling Stones"],
     correctChoice: "The Rolling Stones",
-    audio: "/audio/Paint It, Black.mp3",
+    audio: "./audio/Paint It, Black.mp3",
   },
   {
     choices: ["Bob Dylan", "Leonard Cohen", "Donovan", "Johnny Cash"],
     correctChoice: "Bob Dylan",
-    audio: "/audio/Bob Dylan - Hurricane (Official Audio).mp3",
+    audio: "./audio/Bob Dylan - Hurricane (Official Audio).mp3",
   },
   {
     choices: ["The Cure", "Jefferson Airplane", "Talking Heads", "Velvet Underground"],
     correctChoice: "Talking Heads",
-    audio: "/audio/Talking Heads - Psycho Killer.mp3",
+    audio: "./audio/Talking Heads - Psycho Killer.mp3",
   },
   {
     choices: ["Jefferson Airplane", "Talking Heads", "Kaleidoscope", "The Byrds"],
@@ -134,242 +134,242 @@ const audioFiles = [
   {
     choices: ["Molly Hatchet", "Steppenwolf", "Eagles", "Lynyrd Skynyrd"],
     correctChoice: "Lynyrd Skynyrd",
-    audio: "/audio/Lynyrd Skynyrd - Sweet Home Alabama (Audio).mp3",
+    audio: "./audio/Lynyrd Skynyrd - Sweet Home Alabama (Audio).mp3",
   },
   {
     choices: ["Genesis", "Pink Floyd", "King Crimson", "Led Zeppelin"],
     correctChoice: "Pink Floyd",
-    audio: "/audio/Pink Floyd - Wish You Were Here.mp3",
+    audio: "./audio/Pink Floyd - Wish You Were Here.mp3",
   },
   {
     choices: ["King Crimson", "Genesis", "Jefferson Airplane", "Jefferson Starship"],
     correctChoice: "King Crimson",
-    audio: "/audio/King Crimson - I Talk To The Wind.mp3",
+    audio: "./audio/King Crimson - I Talk To The Wind.mp3",
   },
   {
     choices: ["Dropkick Murphys", "Gentle Giant", "Jethro Tull", "Yes"],
     correctChoice: "Jethro Tull",
-    audio: "/audio/Journeyman (2003 Remaster).mp3",
+    audio: "./audio/Journeyman (2003 Remaster).mp3",
   },
   {
     choices: ["The Kinks", "Badfinger", "The Rolling Stones", "The Beatles"],
     correctChoice: "The Beatles",
-    audio: "/audio/A Hard Day's Night (Remastered 2015).mp3",
+    audio: "./audio/A Hard Day's Night (Remastered 2015).mp3",
   },
   {
     choices: ["Jimi Hendrix", "ACDC", "Brant Bjork", "Deep Purple"],
     correctChoice: "ACDC",
-    audio: "/audio/ACDC - Highway to Hell.mp3",
+    audio: "./audio/ACDC - Highway to Hell.mp3",
   },
   {
     choices: ["Aerosmith", "Bruce Springsteen", "The Rolling Stones", "Van Halen"],
     correctChoice: "Aerosmith",
-    audio: "/audio/Aerosmith - Rag Doll.mp3",
+    audio: "./audio/Aerosmith - Rag Doll.mp3",
   },
   {
     choices: ["Dandy Warhols", "Blur", "Muse", "Brian Jonestown Massacre"],
     correctChoice: "Brian Jonestown Massacre",
-    audio: "/audio/Anemone - Brian Jonestown Massacre.mp3",
+    audio: "./audio/Anemone - Brian Jonestown Massacre.mp3",
   },
   {
     choices: ["Jet", "Dandy Warhols", "Blur", "Muse"],
     correctChoice: "Blur",
-    audio: "/audio/Blur - Song 2 (Official Music Video).mp3",
+    audio: "./audio/Blur - Song 2 (Official Music Video).mp3",
   },
   {
     choices: ["Lou Reed", "Tom Waits", "Bob Dylan", "Leonard Cohen"],
     correctChoice: "Bob Dylan",
-    audio: "/audio/Bob Dylan - Mr. Tambourine Man (Official Audio).mp3",
+    audio: "./audio/Bob Dylan - Mr. Tambourine Man (Official Audio).mp3",
   },
   {
     choices: ["Bruce Springsteen", "Aerosmith", "U2", "Dire Straits"],
     correctChoice: "Bruce Springsteen",
-    audio: "/audio/Born to Run.mp3",
+    audio: "./audio/Born to Run.mp3",
   },
   {
     choices: ["Rush", "The Doors", "U2", "Pink Floyd"],
     correctChoice: "Pink Floyd",
-    audio: "/audio/Comfortably Numb.mp3",
+    audio: "./audio/Comfortably Numb.mp3",
   },
   {
     choices: ["Johnny Cash", "David Bowie", "Lou Reed", "Bob Dylan"],
     correctChoice: "David Bowie",
-    audio: "/audio/David Bowie - Life on Mars_ (Lyrics).mp3",
+    audio: "./audio/David Bowie - Life on Mars_ (Lyrics).mp3",
   },
   {
     choices: ["ACDC", "Motley Crue", "Jimi Hendrix", "Deep Purple"],
     correctChoice: "Deep Purple",
-    audio: "/audio/Deep Purple - Smoke on the Water (Audio).mp3",
+    audio: "./audio/Deep Purple - Smoke on the Water (Audio).mp3",
   },
   {
     choices: ["Dolly Parton", "Nancy Sinatra", "Blondie", "Cindy Lauper"],
     correctChoice: "Dolly Parton",
-    audio: "/audio/Dolly Parton - Jolene (Audio).mp3",
+    audio: "./audio/Dolly Parton - Jolene (Audio).mp3",
   },
   {
     choices: ["The Strokes", "Interpol", "Arctic Monkeys", "Franz Ferdinand"],
     correctChoice: "Franz Ferdinand",
-    audio: "/audio/Franz Ferdinand - Take Me Out (Video).mp3",
+    audio: "./audio/Franz Ferdinand - Take Me Out (Video).mp3",
   },
   {
     choices: ["Steve Miller Band", "Eagles", "Fleetwood Mac", "Wings"],
     correctChoice: "Fleetwood Mac",
-    audio: "/audio/Go Your Own Way (2004 Remaster).mp3",
+    audio: "./audio/Go Your Own Way (2004 Remaster).mp3",
   },
   {
     choices: ["Eagles", "Guns N' Roses", "Dire Straits", "The Who"],
     correctChoice: "Guns N' Roses",
-    audio: "/audio/Guns N' Roses - Sweet Child O' Mine.mp3",
+    audio: "./audio/Guns N' Roses - Sweet Child O' Mine.mp3",
   },
   {
     choices: ["Joan Jett", "Pat Benatar", "The Runaways", "Heart"],
     correctChoice: "Joan Jett",
-    audio: "/audio/I Love Rock 'N Roll.mp3",
+    audio: "./audio/I Love Rock 'N Roll.mp3",
   },
   {
     choices: ["Black Sabbath", "Iron Maiden", "Metallica", "Megadeth"],
     correctChoice: "Iron Maiden",
-    audio: "/audio/Iron Maiden - Wasted Years (Official Video).mp3",
+    audio: "./audio/Iron Maiden - Wasted Years (Official Video).mp3",
   },
   {
     choices: ["Elvis Presley", "Little Richard", "Elton John", "Chuck Berry"],
     correctChoice: "Chuck Berry",
-    audio: "/audio/Johnny B. Goode.mp3",
+    audio: "./audio/Johnny B. Goode.mp3",
   },
   {
     choices: ["Motley Crue", "Def Leppard", "Motorhead", "Iron Maiden"],
     correctChoice: "Motley Crue",
-    audio: "/audio/Kickstart My Heart (2021- Remaster).mp3",
+    audio: "./audio/Kickstart My Heart (2021- Remaster).mp3",
   },
   {
     choices: ["The Who", "Led Zeppelin", "Deep Purple", "Jimi Hendrix"],
     correctChoice: "Led Zeppelin",
-    audio: "/audio/Led Zeppelin - Stairway To Heaven (HQ).mp3",
+    audio: "./audio/Led Zeppelin - Stairway To Heaven (HQ).mp3",
   },
   {
     choices: ["Arctic Monkeys", "The Libertines", "The Killers", "Kings of Leon"],
     correctChoice: "The Killers",
-    audio: "/audio/Mr. Brightside HQ (The Killers).mp3",
+    audio: "./audio/Mr. Brightside HQ (The Killers).mp3",
   },
   {
     choices: ["Aerosmith", "Def Leppard", "Van Halen", "Guns N' Roses"],
     correctChoice: "Guns N' Roses",
-    audio: "/audio/Paradise City - Guns N' Roses.mp3",
+    audio: "./audio/Paradise City - Guns N' Roses.mp3",
   },
   {
     choices: ["Pearl Jam", "Alice in Chains", "U2", "Foo Fighters"],
     correctChoice: "Pearl Jam",
-    audio: "/audio/Pearl Jam - Black (Official Audio).mp3",
+    audio: "./audio/Pearl Jam - Black (Official Audio).mp3",
   },
   {
     choices: ["U2", "Pink Floyd", "Radiohead", "Led Zeppelin"],
     correctChoice: "Pink Floyd",
-    audio: "/audio/Pink Floyd - Wish You Were Here.mp3",
+    audio: "./audio/Pink Floyd - Wish You Were Here.mp3",
   },
   {
     choices: ["Radiohead", "Muse", "Placebo", "Coldplay"],
     correctChoice: "Placebo",
-    audio: "/audio/Placebo - Every You Every Me (Lyrics).mp3",
+    audio: "./audio/Placebo - Every You Every Me (Lyrics).mp3",
   },
   {
     choices: ["Led Zeppelin", "The Doors", "The Beatles", "Queen"],
     correctChoice: "Queen",
-    audio: "/audio/Queen - Another One Bites The Dust [Lyrics].mp3",
+    audio: "./audio/Queen - Another One Bites The Dust [Lyrics].mp3",
   },
   {
     choices: ["Johnny Cash", "Waylon Jennings", "Willie Nelson", "Merle Haggard"],
     correctChoice: "Johnny Cash",
-    audio: "/audio/Ring of Fire.mp3",
+    audio: "./audio/Ring of Fire.mp3",
   },
   {
     choices: ["Dusty Springfield", "Nancy Sinatra", "Dolly Parton", "Bobbie Gentry"],
     correctChoice: "Nancy Sinatra",
-    audio: "/audio/Rockin' Rock and Roll.mp3",
+    audio: "./audio/Rockin' Rock and Roll.mp3",
   },
   {
     choices: ["Ramones", "Buzzcocks", "Sex Pistols", "The Clash"],
     correctChoice: "Sex Pistols",
-    audio: "/audio/Sex Pistols - God Save the Queen.mp3",
+    audio: "./audio/Sex Pistols - God Save the Queen.mp3",
   },
   {
     choices: ["The Animals", "Cream", "Jimi Hendrix", "Steppenwolf"],
     correctChoice: "Steppenwolf",
-    audio: "/audio/Steppenwolf - Born To Be Wild.mp3",
+    audio: "./audio/Steppenwolf - Born To Be Wild.mp3",
   },
   {
     choices: ["Simple Minds", "R.E.M", "Oasis", "U2"],
     correctChoice: "U2",
-    audio: "/audio/Sunday Bloody Sunday.mp3",
+    audio: "./audio/Sunday Bloody Sunday.mp3",
   },
   {
     choices: ["Supertramp", "Genesis", "Yes", "The Moody Blues"],
     correctChoice: "Supertramp",
-    audio: "/audio/Supertramp - Breakfast In America (HQ).mp3",
+    audio: "./audio/Supertramp - Breakfast In America (HQ).mp3",
   },
   {
     choices: ["Eagles", "Fleetwood Mac", "The Verve", "Lynyrd Skynyrd"],
     correctChoice: "Eagles",
-    audio: "/audio/Take It Easy.mp3",
+    audio: "./audio/Take It Easy.mp3",
   },
   {
     choices: ["The Animals", "The Kinks", "The Who", "The Byrds"],
     correctChoice: "The Animals",
-    audio: "/audio/The Animals - House Of The Rising Sun (Music Video) [4K HD].mp3",
+    audio: "./audio/The Animals - House Of The Rising Sun (Music Video) [4K HD].mp3",
   },
   {
     choices: ["Velvet Underground", "Dandy Warhols", "The Verve", "Blur"],
     correctChoice: "Dandy Warhols",
-    audio: "/audio/The Dandy Warhols - Bohemian Like You.mp3",
+    audio: "./audio/The Dandy Warhols - Bohemian Like You.mp3",
   },
   {
     choices: ["The Doors", "Jefferson Airplane", "The Byrds", "The Rolling Stones"],
     correctChoice: "The Doors",
-    audio: "/audio/The Doors - People Are Strange (Official Audio).mp3",
+    audio: "./audio/The Doors - People Are Strange (Official Audio).mp3",
   },
   {
     choices: ["Babyshambles", "The Libertines", "The Strokes", "Arctic Monkeys"],
     correctChoice: "The Libertines",
-    audio: "/audio/The Libertines - Can't Stand Me Now.mp3",
+    audio: "./audio/The Libertines - Can't Stand Me Now.mp3",
   },
   {
     choices: ["The Who", "The Kinks", "The Rolling Stones", "Greta Van Fleet"],
     correctChoice: "The Rolling Stones",
-    audio: "/audio/The Rolling Stones - (I Can't Get No) Satisfaction (Official Lyric Video).mp3",
+    audio: "./audio/The Rolling Stones - (I Can't Get No) Satisfaction (Official Lyric Video).mp3",
   },
   {
     choices: ["The Beatles", "Led Zeppelin", "The Rolling Stones", "Queen"],
     correctChoice: "Queen",
-    audio: "/audio/The Show Must Go On (Remastered 2011).mp3",
+    audio: "./audio/The Show Must Go On (Remastered 2011).mp3",
   },
   {
     choices: ["The Who", "The Yardbirds", "The Small Faces", "U2"],
     correctChoice: "The Who",
-    audio: "/audio/The Who - My Generation.mp3",
+    audio: "./audio/The Who - My Generation.mp3",
   },
   {
     choices: ["ACDC", "Van Halen", "Def Leppard", "Guns N' Roses"],
     correctChoice: "Van Halen",
-    audio: "/audio/Van Halen - Jump.mp3",
+    audio: "./audio/Van Halen - Jump.mp3",
   },
   {
     choices: ["The Rolling Stones", "Van Halen", "Iggy Pop", "Ramones"],
     correctChoice: "Iggy Pop",
-    audio: "/audio/Iggy Pop - The Passenger.mp3",
+    audio: "./audio/Iggy Pop - The Passenger.mp3",
   },
   {
     choices: ["Korn", "Slipknot", "Iggy Pop", "System of a Down"],
     correctChoice: "System of a Down",
-    audio: "/audio/System Of A Down - Toxicity (lyrics).mp3",
+    audio: "./audio/System Of A Down - Toxicity (lyrics).mp3",
   },
   {
     choices: ["Dropkick Murphys", "Jethro Tull", "Iggy Pop", "Steppenwolf"],
     correctChoice: "Dropkick Murphys",
-    audio: "/audio/Dropkick Murphys-Rose tattoo.mp3",
+    audio: "./audio/Dropkick Murphys-Rose tattoo.mp3",
   },
   {
     choices: ["Red Hot Chili Peppers", "Eagles", "The Who", "U2"],
     correctChoice: "Eagles",
-    audio: "/audio/Hotel California - Eagles - Lyrics.mp3",
+    audio: "./audio/Hotel California - Eagles - Lyrics.mp3",
   }
 ];
 
@@ -1075,7 +1075,7 @@ function startTimer(durationInSeconds) {
       if (remainingTime <= 10) {
         timerElement.style.color = 'red';
         if (!tickingSoundPlayed) {
-          playBackgroundSound('/sounds/Time lapseclock lapse.mp3'); 
+          playBackgroundSound('./sounds/Time lapseclock lapse.mp3'); 
           tickingSoundPlayed = true;
         }
       } else {
@@ -1144,12 +1144,12 @@ function checkAnswerRoundTwo(selectedChoice, currentIndex) {
 }
 
 function playCorrectSound() {
-  const correctSound = new Audio('/sounds/correctAnswer.mp3');
+  const correctSound = new Audio('./sounds/correctAnswer.mp3');
   correctSound.play();
 }
 
 function playIncorrectSound() {
-  const incorrectSound = new Audio('/sounds/wrongAnswer.mp3');
+  const incorrectSound = new Audio('./sounds/wrongAnswer.mp3');
   incorrectSound.play();
 }
 
